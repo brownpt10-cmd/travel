@@ -1,0 +1,598 @@
+/* Trip HTML Guide — Mobile Pocket Guide reference stylesheet
+   Copy this file as a starting point for a new trip, then reskin the
+   :root variables below to the trip's own palette. Component classes
+   (.facts, .leg, .ticket, .route, .callout-box, .info-card, .checklist,
+   .pager, .big-link, .nav-card, .timeline) are shared across every page —
+   reuse them rather than inventing new ones per page.
+   Reference build: Munich Oktoberfest 2026 pocket guide. */
+:root{
+  --bg:#E9E9E9;
+  --parchment:#F6EFDD;
+  --card:#FFFFFF;
+  --ink:#231F1B;
+  --ink-soft:#5A5A5A;
+  --blue:#1B3A6B;
+  --blue-deep:#0A1B33;
+  --gold:#C9982F;
+  --gold-deep:#A67A1E;
+  --oxblood:#7A2E27;
+  --line:#D9D9D9;
+  --green:#3F6B3F;
+}
+
+*{box-sizing:border-box;}
+
+html,body{height:100%;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Calibri, Arial, 'Helvetica Neue', sans-serif;
+  -webkit-text-size-adjust:100%;
+  padding-bottom:78px; /* space for bottom nav */
+}
+
+a{color:var(--blue-deep);}
+
+.wrap{
+  max-width:520px;
+  margin:0 auto;
+  padding:0 22px 40px;
+}
+
+header.hero{
+  padding:16px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  background:var(--blue-deep);
+  color:var(--parchment);
+  border-bottom:3px solid var(--gold);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+header.hero h1{
+  margin:0;
+  font-size:18px;
+  letter-spacing:.02em;
+  font-weight:700;
+}
+header.hero .dates{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:11px;
+  letter-spacing:.04em;
+  color:var(--gold);
+  text-align:right;
+  white-space:nowrap;
+}
+
+section{padding-top:26px;}
+
+h2.section-title{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  text-align:center;
+  color:var(--parchment);
+  background:var(--oxblood);
+  margin:0 0 12px;
+  padding:10px 12px;
+  border-radius:3px;
+  border-bottom:2px solid var(--gold);
+}
+
+/* ---------- quick facts ---------- */
+.facts{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:16px 18px;
+}
+.fact-row{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  padding:9px 0;
+  border-bottom:1px dashed var(--line);
+  font-size:14px;
+}
+.fact-row:last-child{border-bottom:none;}
+.fact-row .k{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:10.5px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  flex:0 0 36%;
+  padding-top:2px;
+}
+.fact-row .v{flex:1; text-align:right;}
+
+/* ---------- nav grid (home) ---------- */
+.nav-grid{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.nav-card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:5px solid var(--blue);
+  border-radius:4px;
+  padding:14px 16px;
+  text-decoration:none;
+  color:var(--ink);
+}
+.nav-card .nc-left{display:flex; align-items:center; gap:12px;}
+.nav-card .nc-icon{font-size:20px; width:26px; text-align:center;}
+.nav-card .nc-title{font-size:15.5px; font-weight:700;}
+.nav-card .nc-sub{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:11.5px;
+  color:var(--ink-soft);
+  margin-top:2px;
+}
+.nav-card .nc-chevron{color:var(--gold-deep); font-size:16px;}
+
+/* ---------- flight / leg cards ---------- */
+.leg{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:5px solid var(--blue);
+  border-radius:4px;
+  padding:14px 16px;
+  margin-bottom:10px;
+}
+.leg .flight-no{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:11px;
+  letter-spacing:.08em;
+  color:var(--gold-deep);
+  text-transform:uppercase;
+  margin-bottom:4px;
+}
+.leg .route{
+  font-size:16.5px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+.leg .times{
+  display:flex;
+  justify-content:space-between;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12.5px;
+  color:var(--ink-soft);
+}
+.leg .times .t{text-align:right;}
+.fare-note{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12px;
+  color:var(--ink);
+  margin-top:10px;
+  padding:10px 12px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:4px solid var(--oxblood);
+  border-radius:3px;
+  line-height:1.5;
+}
+
+/* ---------- hotel ---------- */
+.hotel-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:18px;
+}
+.hotel-card h3{
+  margin:0 0 4px;
+  font-size:17px;
+}
+.hotel-card .addr{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12px;
+  color:var(--ink-soft);
+  margin-bottom:14px;
+}
+.stay-grid{
+  display:flex;
+  justify-content:space-between;
+  text-align:center;
+  padding:12px 0;
+  border-top:1px dashed var(--line);
+  border-bottom:1px dashed var(--line);
+  margin-bottom:12px;
+}
+.stay-grid div{flex:1;}
+.stay-grid .lbl{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:9.5px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-bottom:4px;
+}
+.stay-grid .val{font-size:13.5px; font-weight:700;}
+.transit-note{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  line-height:1.5;
+}
+.capacity-flag{
+  margin-top:12px;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12px;
+  color:var(--ink);
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:4px solid var(--oxblood);
+  padding:10px 12px;
+  border-radius:3px;
+  line-height:1.5;
+}
+
+/* ---------- day ticket cards ---------- */
+.ticket{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:4px;
+  margin-bottom:22px;
+  overflow:visible;
+}
+.ticket-head{
+  background:var(--blue-deep);
+  color:var(--parchment);
+  padding:12px 16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  border-radius:4px 4px 0 0;
+}
+.ticket-head .day{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-weight:700;
+  letter-spacing:.1em;
+  font-size:12.5px;
+}
+.ticket-head .date{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:11.5px;
+  color:var(--gold);
+}
+.perf{
+  position:relative;
+  height:14px;
+  background:
+    radial-gradient(circle 7px at 0 0, transparent 7px, var(--card) 7.5px) top left,
+    radial-gradient(circle 7px at 100% 0, transparent 7px, var(--card) 7.5px) top right;
+  background-repeat:no-repeat;
+  background-size:50% 100%;
+}
+.perf::before{
+  content:"";
+  position:absolute;
+  top:0; left:14px; right:14px;
+  border-top:2px dashed var(--line);
+}
+.ticket-body{padding:16px 18px 18px;}
+.ticket-body .tag{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:10.5px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--oxblood);
+  margin-bottom:6px;
+}
+.ticket-body h3{
+  margin:0 0 10px;
+  font-size:17.5px;
+  line-height:1.25;
+}
+.ticket-body p{
+  margin:0 0 10px;
+  font-size:14px;
+  line-height:1.6;
+  color:var(--ink);
+}
+.ticket-body p:last-child{margin-bottom:0;}
+
+/* ---------- timeline items within a day ---------- */
+.timeline{margin-top:14px;}
+.tl-item{
+  display:flex;
+  gap:12px;
+  padding:10px 0;
+  border-top:1px dashed var(--line);
+}
+.tl-item:first-child{border-top:none;}
+.tl-time{
+  flex:0 0 62px;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12px;
+  font-weight:700;
+  color:var(--blue-deep);
+  padding-top:1px;
+}
+.tl-body .tl-title{font-size:14px; font-weight:700; margin-bottom:2px;}
+.tl-body .tl-note{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  line-height:1.5;
+}
+
+/* ---------- tent / callout box ---------- */
+.callout-box{
+  background:var(--card);
+  color:var(--ink);
+  border:2px solid var(--oxblood);
+  border-radius:4px;
+  padding:20px;
+}
+.callout-box h3{
+  margin:0 0 10px;
+  font-size:16px;
+  color:var(--oxblood);
+}
+.callout-box ul{
+  margin:0 0 14px;
+  padding-left:18px;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:13px;
+  line-height:1.65;
+  color:var(--ink);
+}
+.callout-box ul li{margin-bottom:6px;}
+.callout-box .avoid{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12.5px;
+  border-top:1px solid var(--line);
+  padding-top:12px;
+  line-height:1.6;
+  color:var(--ink);
+}
+.callout-box .ref{
+  margin-top:14px;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:11px;
+  letter-spacing:.04em;
+  color:var(--ink-soft);
+  font-style:italic;
+}
+.callout-box p{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:13px;
+  line-height:1.65;
+  margin:0 0 10px;
+  color:var(--ink);
+}
+
+/* ---------- table-style info card ---------- */
+.info-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:16px 18px;
+  margin-bottom:14px;
+}
+.info-card h3{
+  margin:0 0 10px;
+  font-size:16px;
+}
+.info-card .row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:7px 0;
+  border-bottom:1px dashed var(--line);
+  font-size:13.5px;
+}
+.info-card .row:last-child{border-bottom:none;}
+.info-card .row .k{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:11px;
+  color:var(--ink-soft);
+  flex:0 0 40%;
+}
+.info-card .row .v{flex:1; text-align:right;}
+.info-card p{font-size:13.5px; line-height:1.6; margin:0 0 8px;}
+.info-card p:last-child{margin-bottom:0;}
+
+/* ---------- open items / checklist ---------- */
+.checklist{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:6px 18px;
+}
+.checklist li{
+  list-style:none;
+  display:flex;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px dashed var(--line);
+  font-size:14px;
+  line-height:1.5;
+}
+.checklist li:last-child{border-bottom:none;}
+.checklist .box{
+  flex:0 0 18px;
+  width:18px;
+  height:18px;
+  border:1.5px solid var(--oxblood);
+  border-radius:2px;
+  margin-top:2px;
+}
+ul.checklist{margin:0; padding-left:0;}
+
+/* ---------- transit route cards ---------- */
+.route{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:4px;
+  margin-bottom:14px;
+  overflow:hidden;
+}
+.route-head{
+  background:var(--blue-deep);
+  color:var(--parchment);
+  padding:11px 16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.route-title{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.01em;
+}
+.route-time{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:10px;
+  letter-spacing:.03em;
+  color:var(--blue-deep);
+  background:var(--gold);
+  padding:3px 9px;
+  border-radius:20px;
+  white-space:nowrap;
+}
+.route-block{padding:14px 18px;}
+.route-label{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--oxblood);
+  margin-bottom:6px;
+}
+.route-block p{
+  margin:0;
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--ink);
+}
+.route-block p .stop{font-weight:700;}
+.route-divider{border-top:1px dashed var(--line); margin:0 18px;}
+
+/* ---------- day pager (Itinerary page) ---------- */
+.pager{
+  background:var(--blue-deep);
+  color:var(--parchment);
+  border-radius:4px;
+  padding:14px 16px;
+  margin-bottom:18px;
+}
+.pager .pager-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:11px;
+  letter-spacing:.05em;
+  margin-bottom:6px;
+}
+.pager .pager-top .badge{
+  background:var(--gold);
+  color:var(--blue-deep);
+  padding:3px 9px;
+  border-radius:20px;
+  font-weight:700;
+}
+.pager h2{margin:2px 0 14px; font-size:18px;}
+.pager-buttons{display:flex; justify-content:space-between; gap:10px;}
+.pager-buttons button{
+  flex:1;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.03em;
+  border:none;
+  border-radius:20px;
+  padding:10px 14px;
+  background:var(--oxblood);
+  color:var(--parchment);
+}
+.pager-buttons button:disabled{opacity:.35;}
+.day-dots{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin:14px 0 4px;
+}
+.day-dots span{
+  width:7px; height:7px; border-radius:50%;
+  background:var(--line);
+}
+.day-dots span.active{background:var(--oxblood);}
+
+/* ---------- big link card (Files page) ---------- */
+.big-link{
+  display:block;
+  text-align:center;
+  background:var(--blue-deep);
+  color:var(--parchment);
+  border-radius:6px;
+  padding:22px;
+  text-decoration:none;
+  border-bottom:3px solid var(--gold);
+}
+.big-link .bl-icon{font-size:34px; margin-bottom:8px;}
+.big-link .bl-title{font-size:17px; font-weight:700; letter-spacing:.02em;}
+.big-link .bl-sub{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12px;
+  color:var(--gold);
+  margin-top:6px;
+}
+
+footer.page-footer{
+  text-align:center;
+  margin-top:36px;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+
+/* ---------- bottom navigation ---------- */
+nav.bottom-nav{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  background:var(--blue-deep);
+  border-top:3px solid var(--gold);
+  display:flex;
+  z-index:20;
+  padding-bottom:env(safe-area-inset-bottom, 0);
+}
+nav.bottom-nav a{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  padding:9px 4px 8px;
+  text-decoration:none;
+  color:#B9C4D6;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:10px;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+}
+nav.bottom-nav a .bn-icon{font-size:18px; line-height:1;}
+nav.bottom-nav a.active{color:var(--gold);}
+
+@media (max-width:380px){
+  .wrap{padding:0 16px 40px;}
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[Trip Name] — Trip Guide</title>
+
+<!-- Optional: a display face for the masthead/hero only. Never use for body text.
+     Swap for Georgia/serif if avoiding an external font request. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ---------- Trip HTML Guide — Desktop Long-Scroll reference template ----------
+     Reference build: Munich Oktoberfest 2026. One file, one continuous scroll,
+     sticky in-page nav (anchor links, no page reloads). Reskin the variables
+     below per trip; keep the section order/shape unless the trip calls for
+     something different. */
+  :root{
+    --bg:#f5efe1;          /* warm parchment page background */
+    --ink:#1b2536;          /* near-black navy for body text */
+    --ink-soft:#5b5240;     /* muted brown-grey for secondary text */
+    --navy:#1b2536;         /* headers, sticky nav, dark blocks */
+    --blue:#2158a5;         /* decorative band / link accent */
+    --gold:#d99a2b;         /* dividers, chips, badges */
+    --maroon:#b23a2e;       /* section banners, links, alerts */
+    --card:#fffdf7;         /* card background, lighter than page bg */
+    --line:#ece0d6;         /* hairline borders/dividers */
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Manrope', Calibri, Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--maroon); text-decoration:none;}
+  a:hover{color:var(--ink);}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+
+  /* Optional decorative band under the masthead — a simple flag/pattern
+     stripe. Drop it entirely for a trip where it doesn't fit. */
+  .band{height:14px; background:var(--blue);}
+
+  header.masthead{
+    padding:28px 32px 20px;
+    text-align:center;
+  }
+  header.masthead .eyebrow{
+    font-family:Arial, sans-serif;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--maroon);
+    margin-bottom:10px;
+  }
+  header.masthead h1{
+    margin:0;
+    font-family:'DM Serif Display', Georgia, serif;
+    font-style:italic;
+    font-size:clamp(32px, 5vw, 54px);
+    color:var(--navy);
+  }
+  header.masthead .dates{
+    margin-top:10px;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+
+  /* Sticky in-page nav — the desktop equivalent of the mobile bottom nav */
+  nav.sticky-nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--navy);
+    border-bottom:3px solid var(--gold);
+  }
+  nav.sticky-nav .wrap{
+    display:flex;
+    gap:26px;
+    padding:14px 32px;
+    overflow-x:auto;
+  }
+  nav.sticky-nav a{
+    color:#dfe4ee;
+    font-family:Arial, sans-serif;
+    font-size:12.5px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    white-space:nowrap;
+  }
+  nav.sticky-nav a:hover{color:var(--gold);}
+
+  section{padding:56px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2.section-title{
+    font-family:'DM Serif Display', Georgia, serif;
+    font-style:italic;
+    font-size:30px;
+    color:var(--navy);
+    margin:0 0 24px;
+  }
+  h2.section-title .tag{
+    display:block;
+    font-family:Arial, sans-serif;
+    font-style:normal;
+    font-size:11.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--maroon);
+    margin-bottom:8px;
+  }
+
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:760px){
+    .grid-2, .grid-3{grid-template-columns:1fr;}
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:22px 24px;
+  }
+  .card h3{margin:0 0 8px; font-size:18px; color:var(--navy);}
+  .card p{margin:0; font-size:14.5px; line-height:1.65; color:var(--ink);}
+
+  table.plan{width:100%; border-collapse:collapse; font-size:14.5px;}
+  table.plan th{
+    text-align:left;
+    font-family:Arial, sans-serif;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding:10px 12px;
+    border-bottom:2px solid var(--navy);
+  }
+  table.plan td{
+    padding:12px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+
+  .callout{
+    background:var(--card);
+    border:2px solid var(--maroon);
+    border-radius:6px;
+    padding:24px 28px;
+  }
+  .callout h3{margin:0 0 10px; color:var(--maroon); font-size:18px;}
+  .callout p{margin:0 0 10px; font-size:14.5px; line-height:1.65;}
+  .callout p:last-child{margin-bottom:0;}
+
+  footer.page-footer{
+    text-align:center;
+    padding:40px 0 60px;
+    font-family:Arial, sans-serif;
+    font-size:11.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+
+<div class="band"></div>
+
+<header class="masthead">
+  <div class="eyebrow">[Destination] · [Year]</div>
+  <h1>[Trip Name]</h1>
+  <div class="dates">[Start date] – [End date] · [Party names]</div>
+</header>
+
+<nav class="sticky-nav">
+  <div class="wrap">
+    <a href="#overview">Overview</a>
+    <a href="#itinerary">Itinerary</a>
+    <a href="#travel">Travel</a>
+    <a href="#local">Local Notes</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section id="overview">
+    <h2 class="section-title"><span class="tag">The Short Version</span>Overview</h2>
+    <div class="grid-3">
+      <div class="card"><h3>[Fact label]</h3><p>[Fact value]</p></div>
+      <div class="card"><h3>[Fact label]</h3><p>[Fact value]</p></div>
+      <div class="card"><h3>[Fact label]</h3><p>[Fact value]</p></div>
+    </div>
+  </section>
+
+  <section id="itinerary">
+    <h2 class="section-title"><span class="tag">Day by Day</span>Itinerary</h2>
+    <table class="plan">
+      <tr><th>Day</th><th>Plan</th></tr>
+      <tr><td>[Day 1, date]</td><td>[What happens]</td></tr>
+      <tr><td>[Day 2, date]</td><td>[What happens]</td></tr>
+    </table>
+  </section>
+
+  <section id="highlight">
+    <h2 class="section-title"><span class="tag">Worth Its Own Section</span>[Trip Centerpiece]</h2>
+    <div class="callout">
+      <h3>[Strategy or focal point of the trip]</h3>
+      <p>[Detail — this is the section that gets extra room on desktop: a
+      full strategy writeup, a comparison, a longer narrative passage.]</p>
+    </div>
+  </section>
+
+  <section id="travel">
+    <h2 class="section-title"><span class="tag">Logistics</span>Travel</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Getting There</h3><p>[Airport/transfer detail]</p></div>
+      <div class="card"><h3>Lodging</h3><p>[Hotel/stay detail]</p></div>
+    </div>
+  </section>
+
+  <section id="local">
+    <h2 class="section-title"><span class="tag">While You're There</span>Local Notes</h2>
+    <div class="grid-3">
+      <div class="card"><h3>Food &amp; Drink</h3><p>[Restaurants, dishes to try]</p></div>
+      <div class="card"><h3>What to Wear</h3><p>[Packing/dress notes]</p></div>
+      <div class="card"><h3>Useful Phrases</h3><p>[Local language cheat sheet]</p></div>
+    </div>
+  </section>
+
+  <footer class="page-footer">[Trip Name] · [Year]</footer>
+</div>
+
+</body>
+</html>
