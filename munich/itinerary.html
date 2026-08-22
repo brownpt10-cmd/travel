@@ -115,6 +115,13 @@
 
     <!-- DAY 4 -->
     <div class="day-panel" data-day="4">
+
+      <div class="opt-toggle">
+        <button id="opt-btn-a" class="active" onclick="showOption('a')">Option A<br><span>By train · gorge</span></button>
+        <button id="opt-btn-b" onclick="showOption('b')">Option B<br><span>By car · Ehrenberg</span></button>
+      </div>
+
+      <div class="option-panel" data-option="a">
       <div class="ticket">
         <div class="ticket-head"><span class="day">Wed · Day Trip</span><span class="date">Sep 23</span></div>
         <div class="perf"></div>
@@ -142,6 +149,40 @@
           </div>
         </div>
       </div>
+      </div>
+
+      <div class="option-panel" data-option="b">
+      <div class="ticket">
+        <div class="ticket-head"><span class="day">Wed · Day Trip</span><span class="date">Sep 23</span></div>
+        <div class="perf"></div>
+        <div class="ticket-body">
+          <p class="tag">Zugspitze · Partenkirchen · Ehrenberg (AT)</p>
+          <h3>Rental car, and over the border into Tirol</h3>
+          <p>Same early summit, but a car instead of the train — which buys a long lunch in Partenkirchen and an afternoon at Burgruine Ehrenberg and the highline179 suspension bridge above Reutte, Austria. No gorge.</p>
+          <p><strong>Heads up:</strong> this version does not get you back for a Wednesday-evening tent session. Expect Munich around 8:45 PM, later if you take the scenic route home.</p>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-time">5:40 AM</div><div class="tl-body"><div class="tl-title">Walk to Sixt, Munich Ostbahnhof</div><div class="tl-note">Haager Str. 3 — ~15-min walk from JAMS, or one S-Bahn stop. Desk opens 6:00 AM.</div></div></div>
+            <div class="tl-item"><div class="tl-time">6:00 AM</div><div class="tl-body"><div class="tl-title">Pick up the rental car</div><div class="tl-note">Photograph all four corners first. Tell the desk you're crossing into Austria.</div></div></div>
+            <div class="tl-item"><div class="tl-time">6:20 AM</div><div class="tl-body"><div class="tl-title">Drive to the Eibsee</div><div class="tl-note">Mittlerer Ring → A95 → B2 → Grainau. ~100 km, ~1h 20m at this hour.</div></div></div>
+            <div class="tl-item"><div class="tl-time">~7:45 AM</div><div class="tl-body"><div class="tl-title">Park at Seilbahn Zugspitze</div><div class="tl-note">Am Eibsee 6, Grainau. Before 8 AM is an easy space — the lot fills and the access road jams by 10.</div></div></div>
+            <div class="tl-item"><div class="tl-time">8:15 AM</div><div class="tl-body"><div class="tl-title">First cable car up</div><div class="tl-note">10-min ascent, quietest and clearest car of the day. Confirm the September timetable.</div></div></div>
+            <div class="tl-item"><div class="tl-time">8:30–11:30</div><div class="tl-body"><div class="tl-title">Zugspitze summit</div><div class="tl-note">2,962m. Platforms, summit cross, Austrian terrace, and the Gletscherbahn down to the glacier plateau — all in the ticket.</div></div></div>
+            <div class="tl-item"><div class="tl-time">~11:30 AM</div><div class="tl-body"><div class="tl-title">Down, then drive into Partenkirchen</div><div class="tl-note">~15 km / 20 min. Park at P12 Rathausplatz, a few minutes from Ludwigstraße.</div></div></div>
+            <div class="tl-item"><div class="tl-time">12:30–1:15</div><div class="tl-body"><div class="tl-title">Walk Ludwigstraße and the old town</div><div class="tl-note">Painted Lüftlmalerei facades, Pfarrkirche St. Martin. Flat and easy after a morning of lifts.</div></div></div>
+            <div class="tl-item"><div class="tl-time">1:15–2:30</div><div class="tl-body"><div class="tl-title">Lunch — Gasthaus zur Schranne</div><div class="tl-note">Griesstraße 4. Augustiner on tap, beer garden if it holds. Book: 08821 9098030</div></div></div>
+            <div class="tl-item"><div class="tl-time">~2:40 PM</div><div class="tl-body"><div class="tl-title">Drive to Reutte, Austria</div><div class="tl-note">Griesen → B187 via Lermoos → B179. ~55 km, ~1h 5m. Toll- and vignette-free.</div></div></div>
+            <div class="tl-item"><div class="tl-time">~3:45 PM</div><div class="tl-body"><div class="tl-title">Park at the Ehrenberger Klause</div><div class="tl-note">Klause 1, 6600 Reutte. Marked exit right after the railway underpass. €5 for the day.</div></div></div>
+            <div class="tl-item"><div class="tl-time">4:00–4:30</div><div class="tl-body"><div class="tl-title">Walk up toward the bridge</div><div class="tl-note">20–30 min, ~100m of climb. Inclined lift available if you'd rather not.</div></div></div>
+            <div class="tl-item"><div class="tl-time">4:30–5:05</div><div class="tl-body"><div class="tl-title">Cross the highline179</div><div class="tl-note">406m of suspension bridge, 114m above the valley. €10 — machines are cash only, no €50 notes.</div></div></div>
+            <div class="tl-item"><div class="tl-time">5:05–6:05</div><div class="tl-body"><div class="tl-title">Burgruine Ehrenberg</div><div class="tl-note">13th-century ruin above the Fernpass road, free and largely unfenced. Best light of the day up here.</div></div></div>
+            <div class="tl-item"><div class="tl-time">6:05–6:35</div><div class="tl-body"><div class="tl-title">Walk back down to the Klause</div><div class="tl-note">Sunset ~7:10 PM, so no rush. Firm shoes matter on the descent.</div></div></div>
+            <div class="tl-item"><div class="tl-time">~6:45 PM</div><div class="tl-body"><div class="tl-title">Drive back to Munich</div><div class="tl-note">~2h via Füssen and the A96, or back through Garmisch on the A95. The Plansee/Linderhof route adds ~30 min and is worth it in daylight.</div></div></div>
+          </div>
+          <p style="margin-top:14px;"><strong>Book ahead:</strong> rental car and the timed Zugspitze slot (€78). Parking ~€7–10 at the Eibsee, €5 at Ehrenberg. Everything else is walk-up.</p>
+        </div>
+      </div>
+      </div>
+
     </div>
 
     <!-- DAY 5 -->
@@ -181,7 +222,7 @@
     {n:1, label:"SUN, SEP 20", title:"Depart Colorado Springs"},
     {n:2, label:"MON, SEP 21", title:"Arrival in Munich"},
     {n:3, label:"TUE, SEP 22", title:"Sights + First Tent Day"},
-    {n:4, label:"WED, SEP 23", title:"Garmisch-Partenkirchen Day Trip"},
+    {n:4, label:"WED, SEP 23", title:"Garmisch Day Trip — pick A or B"},
     {n:5, label:"THU, SEP 24", title:"Last Morning, Fly Home"}
   ];
   var total = days.length;
@@ -209,9 +250,21 @@
     days.forEach(function(dd){
       document.getElementById('dot-' + dd.n).className = (dd.n === n) ? 'active' : '';
     });
+    if(n === 4){ showOption(currentOption); }
     window.scrollTo(0,0);
   }
 
+  var currentOption = 'a';
+  function showOption(opt){
+    currentOption = opt;
+    document.querySelectorAll('.option-panel').forEach(function(p){
+      p.style.display = (p.getAttribute('data-option') === opt) ? 'block' : 'none';
+    });
+    document.getElementById('opt-btn-a').className = (opt === 'a') ? 'active' : '';
+    document.getElementById('opt-btn-b').className = (opt === 'b') ? 'active' : '';
+  }
+
+  showOption('a');
   showDay(1);
 </script>
 
