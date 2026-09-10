@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Paros, Greece — Research Report</title>
+<style>
+  :root{
+    --bg: #ffffff;
+    --card: #ffffff;
+    --ink: #2a2013;
+    --ink-soft: #5b4f3a;
+    --navy: #1f3854;
+    --red: #7c1f2a;
+    --gold: #b7943f;
+    --gold-soft: #f0e6c8;
+    --line: #e2ddd0;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
+    line-height:1.5;
+    -webkit-text-size-adjust:100%;
+  }
+  a{color:var(--navy); text-decoration:none; border-bottom:1px solid var(--gold);}
+  a:active, a:hover{color:var(--red);}
+
+  header.top{
+    background:var(--navy);
+    color:#f5efdc;
+    padding:14px 16px;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:4px;
+    border-bottom:4px solid var(--gold);
+    position:sticky;
+    top:0;
+    z-index:20;
+  }
+  header.top h1{
+    font-size:1.15rem;
+    margin:0;
+    font-weight:normal;
+    letter-spacing:0.03em;
+    font-family: Georgia, serif;
+  }
+  header.top .sub{
+    font-size:0.78rem;
+    color:var(--gold-soft);
+    font-style:italic;
+  }
+
+  nav.jump{
+    background:#f7f5ef;
+    border-bottom:1px solid var(--line);
+    padding:8px 8px;
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    position:sticky;
+    top:53px;
+    z-index:19;
+    white-space:nowrap;
+  }
+  nav.jump::-webkit-scrollbar{display:none;}
+  nav.jump a{
+    flex:0 0 auto;
+    background:var(--card);
+    border:1px solid var(--gold);
+    border-bottom:1px solid var(--gold);
+    color:var(--red);
+    font-size:0.72rem;
+    padding:5px 10px;
+    border-radius:999px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+
+  main{
+    max-width:680px;
+    margin:0 auto;
+    padding:0 14px 40px;
+  }
+
+  .lede{
+    padding:16px 4px 4px;
+    font-size:0.95rem;
+    color:var(--ink-soft);
+  }
+  .lede strong{color:var(--ink);}
+
+  section{margin-top:22px;}
+
+  .banner{
+    background:var(--red);
+    color:#fbf3e2;
+    text-align:center;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-size:0.85rem;
+    padding:8px 10px;
+    border-top:2px solid var(--gold);
+    border-bottom:2px solid var(--gold);
+    margin:0 0 10px;
+  }
+
+  h3.sub-head{
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--navy);
+    border-bottom:1px solid var(--line);
+    padding-bottom:3px;
+    margin:16px 0 8px;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:4px solid var(--gold);
+    border-radius:6px;
+    padding:10px 12px;
+    margin-bottom:8px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.05);
+  }
+  .card .name{font-weight:bold; color:var(--navy);}
+  .card .tag{
+    display:inline-block;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    color:var(--red);
+    border:1px solid var(--red);
+    border-radius:3px;
+    padding:0 5px;
+    margin-left:6px;
+    vertical-align:middle;
+  }
+  .card p{margin:4px 0 0; font-size:0.92rem; color:var(--ink-soft);}
+
+  .grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+  }
+  @media (max-width:480px){
+    .grid2{grid-template-columns:1fr;}
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:0.88rem;
+  }
+  .tablewrap{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    border:1px solid var(--line);
+    border-radius:6px;
+    margin-bottom:10px;
+  }
+  table th, table td{
+    padding:7px 9px;
+    border-bottom:1px solid var(--line);
+    text-align:left;
+    white-space:nowrap;
+  }
+  table th{background:var(--gold-soft); color:var(--ink); font-weight:normal; text-transform:uppercase; font-size:0.7rem; letter-spacing:0.03em;}
+  table tr:last-child td{border-bottom:none;}
+
+  details{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:6px 12px;
+    margin-bottom:8px;
+  }
+  details summary{
+    cursor:pointer;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--navy);
+    padding:4px 0;
+  }
+  details[open] summary{color:var(--red);}
+
+  ul.plain{margin:6px 0; padding-left:1.1em;}
+  ul.plain li{margin-bottom:6px; font-size:0.92rem;}
+  ul.plain li strong{color:var(--navy);}
+
+  .noteBox{
+    background:#eef1e6;
+    border:1px solid #b9c9a6;
+    border-radius:6px;
+    padding:10px 12px;
+    font-size:0.88rem;
+    color:#3c4a2f;
+    margin-bottom:10px;
+  }
+
+  .divider{
+    text-align:center;
+    color:var(--gold);
+    letter-spacing:0.4em;
+    margin:6px 0 14px;
+    font-size:0.8rem;
+  }
+
+  .srclist{font-size:0.85rem;}
+  .srclist h4{
+    margin:14px 0 4px;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--navy);
+  }
+  .srclist ul{margin:2px 0 0; padding-left:1.1em;}
+  .srclist li{margin-bottom:3px;}
+
+  .yt-item{margin-bottom:10px; font-size:0.9rem;}
+  .yt-item .ch{color:var(--red); font-weight:bold;}
+  .yt-item .date{color:var(--ink-soft); font-size:0.78rem;}
+
+  footer{
+    text-align:center;
+    font-size:0.75rem;
+    color:var(--ink-soft);
+    padding:24px 14px 30px;
+    border-top:1px solid var(--line);
+    margin-top:26px;
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>Paros, Greece</h1>
+  <div class="sub">Research Report — as of Sep 10, 2026</div>
+</header>
+
+<nav class="jump">
+  <a href="#overview">Overview</a>
+  <a href="#around">Getting Around</a>
+  <a href="#sights">Sights</a>
+  <a href="#entertainment">Entertainment</a>
+  <a href="#food">Food &amp; Drink</a>
+  <a href="#nature">Nature</a>
+  <a href="#niche">Niche</a>
+  <a href="#weather">Weather</a>
+  <a href="#youtube">YouTube</a>
+  <a href="#sources">Sources</a>
+  <a href="#open">Open Qs</a>
+</nav>
+
+<main>
+
+  <section id="overview">
+    <p class="lede">Paros is a Cyclades island between Mykonos and Santorini — whitewashed lanes, blue-domed churches, two very different main towns, and a reputation for being one of the strongest all-around Greek islands: good beaches, real inland villages, solid ferry links, and (per most sources) less overrun than its famous neighbors. It's also a world-class windsurfing/kitesurfing spot.</p>
+    <div class="noteBox"><strong>Trip is short:</strong> Sep 10–13 is only ~3 nights. Treat everything below as a menu to choose from, not a checklist — see <a href="#open">Open Questions</a> for a suggested day split.</div>
+  </section>
+
+  <section id="around">
+    <div class="banner">Getting Around</div>
+    <ul class="plain">
+      <li><strong>Public bus (KTEL)</strong> — cheapest option. Hubs in Parikia and Naoussa; routes to Golden Beach, Piso Livadi, Aliki, Kolymbithres, the airport, and Pounta (Antiparos ferry). From €2.20/ride, €12 day pass. <em>Service drops sharply after August</em> — check schedules day-of.</li>
+      <li><strong>Rental car</strong> — the better choice over a quad/ATV for a short visit ("95% of roads don't require a quad"); ~€30/day. Needed to reach Marathi quarries, Lefkes trailheads, and multiple beaches in one day.</li>
+      <li><strong>Taxis</strong> — available at ports/main towns, pricier but simplest point-to-point; reserve ahead for transfers.</li>
+      <li><strong>Walking</strong> — both Parikia and Naoussa old towns are pedestrian-friendly; parts of Naoussa aren't reachable by car at all.</li>
+      <li><strong>Sea bus</strong> — seasonal boat from Parikia to north-shore beaches (Krios, Kolymbithres, Santa Maria); confirm September frequency.</li>
+      <li><strong>To Antiparos</strong> — ferry from <strong>Pounta</strong> (not Parikia), ~7 min, every 30 min, ~€1.50/person cash. A vehicle is effectively required once there.</li>
+    </ul>
+  </section>
+
+  <section id="sights">
+    <div class="banner">Tourist Spots / Must-See</div>
+    <h3 class="sub-head">First Order</h3>
+    <div class="card"><span class="name">Naoussa old harbor &amp; Kastro</span><p>Fishing boats, restored shipyards, boutiques and wine bars in the alleys — most-cited single "must walk around" spot on the island.</p></div>
+    <div class="card"><span class="name">Panagia Ekatontapiliani</span> <span class="tag">Parikia</span><p>"Church of 100 Doors" — one of the most important Byzantine monuments in Greece, 4th century AD, free to visit.</p></div>
+    <div class="card"><span class="name">Frankish Castle &amp; Old Market</span> <span class="tag">Parikia</span><p>Pedestrian lanes and a Venetian-era castle built directly from recycled ancient marble blocks.</p></div>
+    <div class="card"><span class="name">Kolymbithres Beach</span><p>Sculpted granite boulders forming natural coves/pools — the island's most distinctive beach; great for families and snorkeling.</p></div>
+    <div class="card"><span class="name">Lefkes</span><p>Old inland capital, hill village, traditional architecture — "the best inland village," start/end of the Byzantine Road.</p></div>
+    <div class="card"><span class="name">Byzantine Road</span><p>3.5 km marble-paved path (Lefkes ↔ Prodromos), parts dating to ~1000 AD. Scenic, under 2 hrs one-way.</p></div>
+
+    <h3 class="sub-head">Second Order</h3>
+    <ul class="plain">
+      <li><strong>Paros Archaeological Museum</strong> (Parikia) — Cycladic figurines, a 470 BC Nike statue, mid-6th-c. BC marble Gorgo. Hours/price unconfirmed — verify locally.</li>
+      <li><strong>Marpissa, Prodromos, Drios, Aliki</strong> — smaller villages locals call "the real Paros" vs. Naoussa's more polished feel.</li>
+      <li><strong>Antiparos day trip</strong> — the Cave of Antiparos (411 steps, ~€6, ~1 hr) and the small intact Venetian Kastro. Realistically 6–8 hours, not a half-day.</li>
+      <li><strong>Marathi ancient marble quarries</strong> — source of marble for the Venus de Milo and Nike of Samothrace. Visit via scheduled free organized visits (no booking) or a private guide (~90 min–2 hrs). Confirm current dates.</li>
+    </ul>
+  </section>
+
+  <section id="entertainment">
+    <div class="banner">Entertainment</div>
+    <h3 class="sub-head">First Order</h3>
+    <ul class="plain">
+      <li><strong>Naoussa nightlife strip</strong> — sunset/wine bars through late-night dance venues, concentrated in the old harbor alleys.</li>
+      <li><strong>Moraitis Winery</strong> (Naoussa) — third-generation family winery, tastings of native Parian varieties, small on-site historical exhibit.</li>
+    </ul>
+    <h3 class="sub-head">Second Order</h3>
+    <ul class="plain">
+      <li><strong>Paros Park</strong> (near Naoussa) — protected headland, walking trails, sea caves, summer open-air cinema.</li>
+      <li><strong>Boat trips to Despotiko</strong> and other islets — sold locally, weather-dependent.</li>
+    </ul>
+  </section>
+
+  <section id="food">
+    <div class="banner">Food &amp; Beverage</div>
+
+    <h3 class="sub-head">Signature dishes &amp; drinks — try these</h3>
+    <ul class="plain">
+      <li><strong>Gouna</strong> — sun-dried salted mackerel/bonito grilled over charcoal; the island's signature dish, best with tsipouro or ouzo.</li>
+      <li><strong>Kakavia</strong> — Parian fish soup, traditionally made with about a third seawater; among the best fish soups in Greece per multiple sources.</li>
+      <li><strong>Revithada</strong> — slow-cooked chickpea stew, historically a Sunday dish baked communally.</li>
+      <li><strong>Souma</strong> — the island's own grape-distilled spirit, made locally each October — ask for it by name instead of defaulting to ouzo.</li>
+      <li><strong>Xinomizithra</strong> — tangy local cow's-milk cheese, shows up in pies, salads, and mezes.</li>
+    </ul>
+
+    <h3 class="sub-head">Restaurants — First Order</h3>
+    <div class="card"><span class="name">Yemeni</span> <span class="tag">Naoussa</span><p>Seasonal Greek dishes, curated wine list — frequently cited as one of the island's best.</p></div>
+    <div class="card"><span class="name">Statheros</span> <span class="tag">Naoussa</span><p>Farm-to-table meze, family recipes, local sourcing.</p></div>
+    <div class="card"><span class="name">Ouzeri Halaris</span> <span class="tag">Piso Livadi</span><p>Daily-caught fresh seafood, run by a fishing family — casual and local.</p></div>
+    <div class="card"><span class="name">Markakis</span> <span class="tag">Piso Livadi</span><p>Traditional Parian dishes including gouna and kakavia.</p></div>
+
+    <h3 class="sub-head">Restaurants — Second Order</h3>
+    <div class="tablewrap">
+    <table>
+      <tr><th>Spot</th><th>Village</th><th>Known for</th></tr>
+      <tr><td>Stou Fred</td><td>Parikia</td><td>5-course tasting menu</td></tr>
+      <tr><td>Taverna Glafkos</td><td>Naoussa</td><td>Contemporary seafood, waterside</td></tr>
+      <tr><td>Soso</td><td>Naoussa</td><td>Meat-focused, rotating menu</td></tr>
+      <tr><td>Cuore Rosso</td><td>Parikia</td><td>Handmade pizza</td></tr>
+      <tr><td>Kargas</td><td>Naoussa</td><td>Cheap gyros/souvlaki</td></tr>
+      <tr><td>Les Amis</td><td>Pounta</td><td>Modern Mediterranean</td></tr>
+      <tr><td>Café Symposium</td><td>Parikia</td><td>Crepes, coffee</td></tr>
+      <tr><td>Ephessus</td><td>Parikia</td><td>Greek-Turkish, wood-fired pizza</td></tr>
+    </table>
+    </div>
+
+    <h3 class="sub-head">Bars — First Order</h3>
+    <div class="grid2">
+      <div class="card"><span class="name">Bebop</span> <span class="tag">Parikia</span><p>Rooftop sunset bar, sea view.</p></div>
+      <div class="card"><span class="name">Fotis All Day Bar</span> <span class="tag">Naoussa</span><p>Tables right on the beach.</p></div>
+      <div class="card"><span class="name">Kosmos Cocktail Bar</span> <span class="tag">Naoussa</span><p>Repeatedly cited best cocktails on the island.</p></div>
+      <div class="card"><span class="name">Sommaripa Consolato</span> <span class="tag">Naoussa</span><p>Upscale rooftop over the marina.</p></div>
+    </div>
+    <h3 class="sub-head">Bars — Second Order</h3>
+    <ul class="plain">
+      <li><strong>Moraitis Vinothéque</strong> (Naoussa) — the winery's own wine bar.</li>
+      <li><strong>Koukoutsi</strong> (Parikia) — live rebetiko music, local spirits.</li>
+      <li><strong>Pirate Bar</strong> (Parikia) — since 1983, moody, creative cocktails.</li>
+      <li><strong>Resalto</strong> (Drios) — laid-back, locals-heavy.</li>
+    </ul>
+  </section>
+
+  <section id="nature">
+    <div class="banner">Nature &amp; Outdoors</div>
+    <h3 class="sub-head">First Order</h3>
+    <ul class="plain">
+      <li><strong>Kolymbithres</strong> — granite-cove swimming and snorkeling (see Sights above).</li>
+      <li><strong>Mini Santa Maria Beach</strong> — sheltered cove, exceptionally clear turquoise water; the beach to prioritize if you only get one.</li>
+      <li><strong>Golden Beach</strong> — the island's largest beach, major windsurfing/kitesurfing venue that hosts international competitions.</li>
+      <li><strong>Byzantine Road hike</strong> — the easy, scenic version of Paros hiking (see Sights above).</li>
+    </ul>
+    <h3 class="sub-head">Second Order</h3>
+    <ul class="plain">
+      <li><strong>Santa Maria Beach</strong> — livelier, younger crowd, beach-club atmosphere (distinct from "Mini Santa Maria" — don't mix the two up).</li>
+      <li><strong>Krios Beach</strong> — reachable by sea bus from Parikia, good all-rounder.</li>
+      <li><strong>Lefkes–Pigados–Marathi quarries hike</strong> — 10 km/4 hrs one-way, or 14 km/5 hr loop; passes the 17th-c. Monastery of Agios Minas. Only realistic with a full day to spare.</li>
+      <li><strong>Faragas Beach</strong> — south-coast, rugged, sheltered from north winds, has a beach taverna.</li>
+    </ul>
+  </section>
+
+  <section id="niche">
+    <div class="banner">Niche / Off-the-Beaten-Path</div>
+    <ul class="plain">
+      <li><strong>Lageri/Laggeri Beach</strong> — undeveloped dune beach near Naousa with cedar trees; naturist-friendly, very few visitors even in peak season.</li>
+      <li><strong>Piso Aliki Beach</strong> — limestone south-coast shoreline, a local rather than tourist favorite, good seafood tavernas nearby.</li>
+      <li><strong>Kalogeros Beach</strong> — natural clay deposits locals apply as an informal spa treatment.</li>
+      <li><strong>Monastiri Beach</strong> — inside Paros Park, shallow and clear, with a path continuing to a quieter unorganized cove.</li>
+      <li><strong>Marathi ancient marble quarries</strong> — genuinely off-radar despite the history (marble for the Venus de Milo came from here).</li>
+      <li><strong>Antiparos's channel-side beaches</strong> (Apantima, Soros) — calm, current-protected, very light crowds even in August.</li>
+    </ul>
+  </section>
+
+  <section id="weather">
+    <div class="banner">September Weather</div>
+    <div class="tablewrap">
+    <table>
+      <tr><th>Measure</th><th>Value</th></tr>
+      <tr><td>Daytime air temp</td><td>~25°C (77°F)</td></tr>
+      <tr><td>Nighttime air temp</td><td>~19°C (66°F)</td></tr>
+      <tr><td>Sea temp</td><td>~23°C (73°F)</td></tr>
+      <tr><td>Sunshine</td><td>~11 hrs/day</td></tr>
+      <tr><td>Rainfall</td><td>~11mm, ~1 rainy day</td></tr>
+    </table>
+    </div>
+    <p style="font-size:0.9rem; color:var(--ink-soft);">Multiple sources call September their favorite month for Paros: warmest sea, most things still open, thinner crowds than July/August. The one tradeoff — bus frequency drops off from peak-summer levels (see Getting Around).</p>
+  </section>
+
+  <section id="youtube">
+    <div class="banner">YouTube Research</div>
+    <p style="font-size:0.82rem; color:var(--ink-soft); font-style:italic;">Pulled via the YouTube Data API — channel, date, and description below are confirmed metadata, not guessed from search snippets. Still summaries, not full watch-throughs.</p>
+
+    <div class="yt-item"><span class="ch">Exotic Things To Do</span> — <a href="https://www.youtube.com/watch?v=xBQyaOyERmg">"21 Best Things to Do in Paros"</a> <span class="date">(Mar 2026)</span><br>Broad, recent overview — good cross-check against Sights/Niche above.</div>
+
+    <div class="yt-item"><span class="ch">April</span> — <a href="https://www.youtube.com/watch?v=uzeJKoh-orI">"Ultimate Paros Travel Guide"</a> <span class="date">(Nov 2025)</span><br>General guide blending sights and food.</div>
+
+    <div class="yt-item"><span class="ch">Max and Jacqueline</span> — <a href="https://www.youtube.com/watch?v=nrgvbzTqmrI">"Paros Will Make You Forget About Santorini"</a> <span class="date">(Nov 2025)</span><br>Two days on a scooter — realistic pacing reference for a short trip.</div>
+
+    <div class="yt-item"><span class="ch">thelittlebasket</span> — <a href="https://www.youtube.com/watch?v=0NsMsWW1wkY">"Paros FOR FIRST-TIMERS: 14 Mistakes to Avoid"</a> <span class="date">(Feb 2026)</span><br>Practical/logistics-focused — pairs well with Getting Around.</div>
+
+    <div class="yt-item"><span class="ch">Sharing the Road</span> — <a href="https://www.youtube.com/watch?v=nmX9NFSeQko">"Paros Food Tour"</a> <span class="date">(Aug 2024)</span><br>Dedicated food tour — best match for Food &amp; Beverage.</div>
+
+    <div class="yt-item"><span class="ch">Travels Unfiltered</span> — <a href="https://www.youtube.com/watch?v=b_LFYC3Xsts">"Top 20 Restaurants &amp; Food Experiences"</a> <span class="date">(Feb 2023)</span><br>Large restaurant list — older, cross-check specifics before relying on it.</div>
+
+    <p style="font-size:0.85rem; color:var(--ink-soft); margin-top:10px;">No dedicated Paros content found from the larger named creators (Rick Steves, Wolters World, Mark Wiens, Kara and Nate, Drew Binsky, Geography Now, Johnny Harris, Vox Borders, Gareth Leonard, Karl Watson, The Budgeteers, Fearless &amp; Far, Brendan van Son, Kraig Adams, Yes Theory) — confirmed by searching the YouTube API directly by name.</p>
+  </section>
+
+  <section id="sources" class="srclist">
+    <div class="banner">Further Reading</div>
+
+    <h4>General &amp; overview</h4>
+    <ul>
+      <li><a href="https://www.discovergreece.com/cyclades/paros">Discover Greece: Paros</a></li>
+      <li><a href="https://santorinidave.com/paros">Santorini Dave: Paros Travel Guide</a></li>
+      <li><a href="https://www.greeka.com/cyclades/paros/">Greeka: Paros</a></li>
+      <li><a href="https://community.ricksteves.com/travel-forum/greece/what-to-do-in-paros">Rick Steves Community: What to do in Paros?</a></li>
+    </ul>
+
+    <h4>Beaches</h4>
+    <ul><li><a href="https://www.thecommonwanderer.com/blog/best-beaches-in-paros-island">The Common Wanderer: Best Beaches in Paros</a></li></ul>
+
+    <h4>Getting around</h4>
+    <ul>
+      <li><a href="https://www.greeka.com/cyclades/paros/transportations/">Greeka: Paros Transportation</a></li>
+      <li><a href="https://santorinidave.com/paros-bus">Santorini Dave: Paros Buses</a></li>
+    </ul>
+
+    <h4>Food &amp; drink</h4>
+    <ul>
+      <li><a href="https://santorinidave.com/best-restaurants-paros">Santorini Dave: Best Restaurants in Paros</a></li>
+      <li><a href="https://fastferries.com.gr/en/blog/paros-food/">Fast Ferries: The Local Food You Must Try</a></li>
+    </ul>
+
+    <h4>Nightlife</h4>
+    <ul><li><a href="https://santorinidave.com/paros-nightlife">Santorini Dave: Best Bars &amp; Clubs in Paros</a></li></ul>
+
+    <h4>Sights &amp; culture</h4>
+    <ul>
+      <li><a href="https://www.greeka.com/cyclades/paros/sightseeing/paros-archaeological-museum/">Greeka: Paros Archaeological Museum</a></li>
+      <li><a href="https://parianmarble.com/currently-planned-visits/">Parian Marble: Currently Planned Visits (Marathi Quarries)</a></li>
+    </ul>
+
+    <h4>Hiking</h4>
+    <ul><li><a href="https://paroshikes.com/the-lefkes-pigados-ancient-quarries-hike/">Paros Hikes: Lefkes–Pigados–Ancient Quarries Hike</a></li></ul>
+
+    <h4>Hidden gems</h4>
+    <ul><li><a href="https://www.secret-greece.com/hidden-gems-in-paros/">Secret Greece: Hidden Gems in Paros</a></li></ul>
+
+    <h4>Antiparos day trip</h4>
+    <ul><li><a href="https://www.paros-summer.com/blog/things-to-do-paros/antiparos-day-trip/">Paros Summer: Antiparos Day Trip</a></li></ul>
+
+    <h4>Weather</h4>
+    <ul><li><a href="https://www.weather2travel.com/paros/september/">Weather2Travel: Paros in September</a></li></ul>
+  </section>
+
+  <section id="open">
+    <div class="banner">Open Questions</div>
+    <ul class="plain">
+      <li><strong>Only ~3 nights:</strong> pick from this menu rather than trying it all — e.g. one town day in Naoussa, one beach day (Kolymbithres or Mini Santa Maria), one half-day for Lefkes/Byzantine Road or the Antiparos cave.</li>
+      <li><strong>September bus frequency</strong> drops sharply after August — confirm current KTEL schedules on arrival, especially for bus-only beaches.</li>
+      <li><strong>Marathi quarries visit dates</strong> are published periodically — confirm one falls in your window, or budget for a private guide.</li>
+      <li><strong>Archaeological Museum</strong> hours/admission weren't confirmed — verify locally.</li>
+      <li><strong>Antiparos needs a vehicle</strong> once there — factor that cost/logistics into the day.</li>
+      <li>The <strong>Travels Unfiltered</strong> restaurant video is from 2023 — cross-check any specific pick against current status.</li>
+    </ul>
+  </section>
+
+  <div class="divider">⁘ ⁘ ⁘</div>
+
+</main>
+
+<footer>
+  Paros, Greece Research Report — built for a Sep 10–13, 2026 trip.<br>
+  Ready to feed into <em>travel-planning-template.md</em> Phase 1–2 and Phase 6–7 if this becomes a full itinerary.
+</footer>
+
+</body>
+</html>
