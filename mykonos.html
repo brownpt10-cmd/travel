@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Mykonos, Greece — Research Report</title>
+<style>
+  :root{
+    --bg: #ffffff;
+    --card: #ffffff;
+    --ink: #2a2013;
+    --ink-soft: #5b4f3a;
+    --navy: #1f3854;
+    --red: #7c1f2a;
+    --gold: #b7943f;
+    --gold-soft: #f0e6c8;
+    --line: #e2ddd0;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
+    line-height:1.5;
+    -webkit-text-size-adjust:100%;
+  }
+  a{color:var(--navy); text-decoration:none; border-bottom:1px solid var(--gold);}
+  a:active, a:hover{color:var(--red);}
+
+  header.top{
+    background:var(--navy);
+    color:#f5efdc;
+    padding:14px 16px;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:4px;
+    border-bottom:4px solid var(--gold);
+    position:sticky;
+    top:0;
+    z-index:20;
+  }
+  header.top h1{
+    font-size:1.15rem;
+    margin:0;
+    font-weight:normal;
+    letter-spacing:0.03em;
+    font-family: Georgia, serif;
+  }
+  header.top .sub{
+    font-size:0.78rem;
+    color:var(--gold-soft);
+    font-style:italic;
+  }
+
+  nav.jump{
+    background:#f7f5ef;
+    border-bottom:1px solid var(--line);
+    padding:8px 8px;
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    position:sticky;
+    top:53px;
+    z-index:19;
+    white-space:nowrap;
+  }
+  nav.jump::-webkit-scrollbar{display:none;}
+  nav.jump a{
+    flex:0 0 auto;
+    background:var(--card);
+    border:1px solid var(--gold);
+    border-bottom:1px solid var(--gold);
+    color:var(--red);
+    font-size:0.72rem;
+    padding:5px 10px;
+    border-radius:999px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+
+  main{
+    max-width:680px;
+    margin:0 auto;
+    padding:0 14px 40px;
+  }
+
+  .lede{
+    padding:16px 4px 4px;
+    font-size:0.95rem;
+    color:var(--ink-soft);
+  }
+  .lede strong{color:var(--ink);}
+
+  section{margin-top:22px;}
+
+  .banner{
+    background:var(--red);
+    color:#fbf3e2;
+    text-align:center;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-size:0.85rem;
+    padding:8px 10px;
+    border-top:2px solid var(--gold);
+    border-bottom:2px solid var(--gold);
+    margin:0 0 10px;
+  }
+
+  h3.sub-head{
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--navy);
+    border-bottom:1px solid var(--line);
+    padding-bottom:3px;
+    margin:16px 0 8px;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:4px solid var(--gold);
+    border-radius:6px;
+    padding:10px 12px;
+    margin-bottom:8px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.05);
+  }
+  .card .name{font-weight:bold; color:var(--navy);}
+  .card .tag{
+    display:inline-block;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    color:var(--red);
+    border:1px solid var(--red);
+    border-radius:3px;
+    padding:0 5px;
+    margin-left:6px;
+    vertical-align:middle;
+  }
+  .dist{
+    display:inline-block;
+    font-size:0.72rem;
+    font-style:italic;
+    color:var(--navy);
+    margin-left:5px;
+    white-space:nowrap;
+  }
+  .card p{margin:4px 0 0; font-size:0.92rem; color:var(--ink-soft);}
+
+  .grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+  }
+  @media (max-width:480px){
+    .grid2{grid-template-columns:1fr;}
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:0.88rem;
+  }
+  .tablewrap{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    border:1px solid var(--line);
+    border-radius:6px;
+    margin-bottom:10px;
+  }
+  table th, table td{
+    padding:7px 9px;
+    border-bottom:1px solid var(--line);
+    text-align:left;
+    white-space:nowrap;
+  }
+  table th{background:var(--gold-soft); color:var(--ink); font-weight:normal; text-transform:uppercase; font-size:0.7rem; letter-spacing:0.03em;}
+  table tr:last-child td{border-bottom:none;}
+
+  details{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:6px 12px;
+    margin-bottom:8px;
+  }
+  details summary{
+    cursor:pointer;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--navy);
+    padding:4px 0;
+  }
+  details[open] summary{color:var(--red);}
+
+  ul.plain{margin:6px 0; padding-left:1.1em;}
+  ul.plain li{margin-bottom:6px; font-size:0.92rem;}
+  ul.plain li strong{color:var(--navy);}
+
+  .noteBox{
+    background:#eef1e6;
+    border:1px solid #b9c9a6;
+    border-radius:6px;
+    padding:10px 12px;
+    font-size:0.88rem;
+    color:#3c4a2f;
+    margin-bottom:10px;
+  }
+
+  .divider{
+    text-align:center;
+    color:var(--gold);
+    letter-spacing:0.4em;
+    margin:6px 0 14px;
+    font-size:0.8rem;
+  }
+
+  .srclist{font-size:0.85rem;}
+  .srclist h4{
+    margin:14px 0 4px;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--navy);
+  }
+  .srclist ul{margin:2px 0 0; padding-left:1.1em;}
+  .srclist li{margin-bottom:3px;}
+
+  .yt-item{margin-bottom:10px; font-size:0.9rem;}
+  .yt-item .ch{color:var(--red); font-weight:bold;}
+  .yt-item .date{color:var(--ink-soft); font-size:0.78rem;}
+
+  footer{
+    text-align:center;
+    font-size:0.75rem;
+    color:var(--ink-soft);
+    padding:24px 14px 30px;
+    border-top:1px solid var(--line);
+    margin-top:26px;
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>Mykonos, Greece</h1>
+  <div class="sub">Research Report — as of Sep 12, 2026</div>
+</header>
+
+<nav class="jump">
+  <a href="#overview">Overview</a>
+  <a href="#around">Getting Around</a>
+  <a href="#sights">Sights</a>
+  <a href="#entertainment">Entertainment</a>
+  <a href="#food">Food &amp; Drink</a>
+  <a href="#nature">Nature</a>
+  <a href="#niche">Niche</a>
+  <a href="#weather">Weather</a>
+  <a href="#youtube">YouTube</a>
+  <a href="#sources">Sources</a>
+  <a href="#open">Open Qs</a>
+</nav>
+
+<main>
+
+  <section id="overview">
+    <p class="lede">Mykonos is the Cyclades' most famous island — whitewashed Chora lanes, iconic windmills, and a reputation built on beach clubs, nightlife, and a jet-set crowd, but also genuine Cycladic architecture, a walkable old town, and one of the best day trips in Greece (Delos) a short ferry ride away. It's smaller and easier to navigate than it looks online — most of what matters sits within 15km of Mykonos Town.</p>
+    <div class="noteBox"><strong>Your bullseye — Olia Hotel, Tourlos:</strong> right at the New Port, the island's main ferry gateway. Great for arrivals/departures, but Mykonos Town itself (Chora, Little Venice, the Windmills) is a short <em>drive</em>, not a walk — see Getting Around.</div>
+    <p class="lede" style="font-size:0.85rem;"><em>Distances below are measured from the bullseye: Olia Hotel, Tourlos (New Port), Mykonos 846 00. Under 30 min is shown as a walk time; over 30 min is shown as a drive distance. Left blank where a good estimate wasn't available.</em></p>
+  </section>
+
+  <section id="around">
+    <div class="banner">Getting Around</div>
+    <ul class="plain">
+      <li><strong>Walking to Mykonos Town — don't.</strong> It's only ~2.5km from Tourlos/New Port to Chora, but the road has no proper pavement for most of the way and is widely flagged as unpleasant/unsafe on foot. Use the <strong>sea bus</strong> (~8 min), the <strong>shuttle bus</strong> (10–15 min), or a <strong>taxi</strong> (~5 min) instead.</li>
+      <li><strong>Public bus (KTEL)</strong> — hub at Fabrika Square in town; routes to most beaches (Paradise, Platys Gialos, Ornos, Elia, Ano Mera). Cheap, but September schedules thin out — confirm locally.</li>
+      <li><strong>Rental car / ATV / scooter</strong> — the practical way to reach north-coast beaches (Panormos, Agios Ioannis, Fokos) and Ano Mera; ~€30–45/day for a car.</li>
+      <li><strong>Taxis</strong> — famously scarce on Mykonos; pre-book for anything time-sensitive.</li>
+      <li><strong>Sea taxis / caïques</strong> — seasonal boats linking the south-coast beaches (Ornos ↔ Psarou ↔ Platys Gialos ↔ Paranga ↔ Paradise ↔ Super Paradise) — beach-hop without a car.</li>
+      <li><strong>To Delos</strong> — ferry from the <strong>Old Port in Mykonos Town</strong> (not Tourlos), 20–40 min crossing (~30 min typical), morning departures around 9:00/10:00/11:30 Tue–Sun, seasonal through October, €20–25 round trip + €8–12 site admission.</li>
+    </ul>
+  </section>
+
+  <section id="sights">
+    <div class="banner">Tourist Spots / Must-See</div>
+    <h3 class="sub-head">First Order</h3>
+    <div class="card"><span class="name">Little Venice</span> <span class="dist">(drive 2.5km — sea bus 8 min)</span><p>Pastel houses with balconies hanging directly over the sea; the single most-photographed corner of Mykonos, best at sunset.</p></div>
+    <div class="card"><span class="name">Windmills / Kato Mili</span> <span class="dist">(drive 2.5km — sea bus 8 min)</span><p>Row of 16th-century whitewashed windmills above Little Venice; free, always open, the classic skyline shot.</p></div>
+    <div class="card"><span class="name">Panagia Paraportiani</span> <span class="dist">(drive 2.5km — sea bus 8 min)</span><p>Unusual sculptural whitewashed church fused from four (some say five) smaller chapels, by the old harbor — one of the most photographed churches in Greece.</p></div>
+    <div class="card"><span class="name">Mykonos Town (Chora) old town</span> <span class="dist">(drive 2.5km — sea bus 8 min)</span><p>The maze of whitewashed lanes, boutiques, and bougainvillea most people picture when they picture Mykonos.</p></div>
+    <div class="card"><span class="name">Delos day trip</span> <span class="dist">(ferry from Old Port)</span><p>UNESCO World Heritage site, mythological birthplace of Apollo &amp; Artemis — ancient theater, mosaics, Terrace of the Lions, small museum. Realistically a half-day to full-day.</p></div>
+
+    <h3 class="sub-head">Second Order</h3>
+    <ul class="plain">
+      <li><strong>Ano Mera</strong> <span class="dist">(drive ~11km)</span> — the island's other village, far quieter/more traditional than Chora, centered on its main square.</li>
+      <li><strong>Panagia Tourliani Monastery</strong> <span class="dist">(drive ~11km)</span> — 16th-century monastery in Ano Mera, ornate marble bell tower, carved wood iconostasis.</li>
+      <li><strong>Mykonos Archaeological Museum</strong> <span class="dist">(drive 2.5km — sea bus 8 min)</span> — Cycladic finds, much excavated from Delos and Rhenia.</li>
+      <li><strong>Aegean Maritime Museum</strong> <span class="dist">(drive 2.5km — sea bus 8 min)</span> — ship models, old maps, a reconstructed 19th-c. lighthouse lamp room.</li>
+      <li><strong>Lena's House Folklore Museum</strong> <span class="dist">(drive 2.5km — sea bus 8 min)</span> — a preserved 19th-century Mykonian merchant's house.</li>
+      <li><strong>Rarity Gallery</strong> <span class="dist">(drive 2.5km — sea bus 8 min)</span> — contemporary art gallery on Kalogera St. in the old town, free to browse.</li>
+    </ul>
+  </section>
+
+  <section id="entertainment">
+    <div class="banner">Entertainment</div>
+    <h3 class="sub-head">First Order</h3>
+    <ul class="plain">
+      <li><strong>Little Venice sunset bars</strong> <span class="dist">(drive 2.5km — sea bus 8 min)</span> — balconies literally over the water facing the sunset and windmills; Katerina's Bar is the most-cited "best sunset spot," alongside Kastro's next door.</li>
+      <li><strong>Scorpios</strong> (Paraga) <span class="dist">(drive ~9km)</span> — the island's famous "sunset ritual" beach club/restaurant — DJ sets, design-forward, a scene rather than a quiet drink.</li>
+      <li><strong>Nammos</strong> (Psarou) <span class="dist">(drive ~7km)</span> — the original Mykonos luxury beach-club-restaurant, a longtime celebrity magnet.</li>
+      <li><strong>Cavo Paradiso</strong> (Paradise Beach area) <span class="dist">(drive ~8.5km)</span> — the island's marquee late-night superclub, international headline DJs through September.</li>
+    </ul>
+    <h3 class="sub-head">Second Order</h3>
+    <ul class="plain">
+      <li><strong>Paradise Beach party strip</strong> <span class="dist">(drive ~8.5km)</span> and <strong>Super Paradise Beach</strong> <span class="dist">(drive ~10km)</span> — daytime beach-club parties running into the evening.</li>
+      <li><strong>Ano Mera taverna evenings</strong> <span class="dist">(drive ~11km)</span> — a quieter, local alternative to a night in Chora.</li>
+    </ul>
+  </section>
+
+  <section id="food">
+    <div class="banner">Food &amp; Beverage</div>
+
+    <h3 class="sub-head">Signature dishes &amp; drinks — try these</h3>
+    <ul class="plain">
+      <li><strong>Kopanisti</strong> — Mykonos's famous spicy, tangy, fermented soft cheese (a P.D.O. product) — the island's most distinctive food export, usually served as a meze.</li>
+      <li><strong>Louza</strong> — thin-sliced, salt- and spice-cured, air-dried pork loin — a Mykonian charcuterie specialty.</li>
+      <li><strong>Ksinotiri</strong> — another local fermented, sour cheese, firmer than kopanisti; good with tomato, bread, or pasta.</li>
+      <li><strong>Mykonian sausage</strong> — lean, oregano-and-spice-seasoned dried pork sausage.</li>
+      <li><strong>Amygdalota</strong> — almond cookies scented with rosewater or orange blossom water, dusted in powdered sugar.</li>
+      <li><strong>Soumada</strong> — a non-alcoholic almond-and-rosewater drink (distinct from Paros's grape-based souma).</li>
+      <li><strong>Melopita</strong> — a local honey-and-soft-cheese pie found in bakeries island-wide.</li>
+    </ul>
+
+    <h3 class="sub-head">Restaurants — First Order</h3>
+    <div class="card"><span class="name">M-Eating</span> <span class="tag">Mykonos Town</span> <span class="dist">(drive 2.5km — sea bus 8 min)</span><p>Inventive modern Greek/Mediterranean on a small terrace — frequently cited among the island's best overall.</p></div>
+    <div class="card"><span class="name">Kalita</span> <span class="tag">Mykonos Town</span> <span class="dist">(drive 2.5km — sea bus 8 min)</span><p>Contemporary Greek in an intimate courtyard — a go-to "romantic dinner" pick.</p></div>
+    <div class="card"><span class="name">Krama</span> <span class="tag">Mykonos Town</span> <span class="dist">(drive 2.5km — sea bus 8 min)</span><p>Ambitious contemporary Greek, tasting-menu-style fine dining.</p></div>
+    <div class="card"><span class="name">Kounelas Fish Tavern</span> <span class="tag">Mykonos Town</span> <span class="dist">(drive 2.5km — sea bus 8 min)</span><p>Small garden-alley seafood spot — pick your fish, they prepare it fresh.</p></div>
+
+    <h3 class="sub-head">Restaurants — Second Order</h3>
+    <div class="tablewrap">
+    <table>
+      <tr><th>Spot</th><th>Village</th><th>Known for</th><th>From bullseye</th></tr>
+      <tr><td>Nikolas Taverna</td><td>Agia Anna Beach</td><td>Family-run, grilled fish, reasonable prices</td><td>drive ~9km</td></tr>
+      <tr><td>Nikos Gallop</td><td>Near Platys Gialos</td><td>Fish/seafood, Cretan influence</td><td>drive ~7km</td></tr>
+      <tr><td>Kastro's</td><td>Little Venice</td><td>Classic sunset view over the windmills</td><td>drive 2.5km</td></tr>
+      <tr><td>Sakis Grill House</td><td>Mykonos Town</td><td>Fast, cheap gyros/souvlaki</td><td>drive 2.5km</td></tr>
+      <tr><td>Pepper</td><td>Near Little Venice</td><td>Quality gyros/souvlaki/salads, compact spot</td><td>drive 2.5km</td></tr>
+    </table>
+    </div>
+
+    <h3 class="sub-head">Bars — First Order</h3>
+    <div class="grid2">
+      <div class="card"><span class="name">Katerina's Bar</span> <span class="tag">Little Venice</span> <span class="dist">(drive 2.5km — sea bus 8 min)</span><p>The classic Little Venice sunset bar, balcony over the water.</p></div>
+      <div class="card"><span class="name">Kastro's</span> <span class="tag">Little Venice</span> <span class="dist">(drive 2.5km — sea bus 8 min)</span><p>The long-running neighbor/rival for the same sunset view.</p></div>
+      <div class="card"><span class="name">Scorpios</span> <span class="tag">Paraga</span> <span class="dist">(drive ~9km)</span><p>Sunset ritual, design-led beach club.</p></div>
+      <div class="card"><span class="name">Nammos</span> <span class="tag">Psarou</span> <span class="dist">(drive ~7km)</span><p>Beach-club glamour, see-and-be-seen.</p></div>
+    </div>
+    <h3 class="sub-head">Bars — Second Order</h3>
+    <ul class="plain">
+      <li><strong>Cavo Paradiso</strong> (Paradise Beach area) <span class="dist">(drive ~8.5km)</span> — the island's biggest late-night club.</li>
+      <li><strong>Super Paradise beach bars</strong> <span class="dist">(drive ~10km)</span> — daytime-into-night party scene.</li>
+    </ul>
+  </section>
+
+  <section id="nature">
+    <div class="banner">Nature &amp; Outdoors</div>
+    <h3 class="sub-head">First Order</h3>
+    <ul class="plain">
+      <li><strong>Psarou Beach</strong> <span class="dist">(drive ~7km)</span> — soft golden sand, calm clear water, the island's most upscale/beach-club-dense stretch (Nammos is here).</li>
+      <li><strong>Platys Gialos</strong> <span class="dist">(drive ~7km)</span> — family-friendly, organized, a hub for sea taxis to the other south-coast beaches.</li>
+      <li><strong>Ornos Beach</strong> <span class="dist">(drive ~6km)</span> — sheltered bay, calm water, easy bus access.</li>
+      <li><strong>Paradise Beach</strong> <span class="dist">(drive ~8.5km)</span> — the original party beach, still buzzing with beach clubs and music through September.</li>
+      <li><strong>Super Paradise Beach</strong> <span class="dist">(drive ~10km)</span> — livelier/younger, split between party and quieter sections; reachable by sea taxi from Platys Gialos.</li>
+    </ul>
+    <h3 class="sub-head">Second Order</h3>
+    <ul class="plain">
+      <li><strong>Panormos Beach</strong> <span class="dist">(drive 7.5km)</span> — quieter, more bohemian north-coast cove; less developed, good windsurfing conditions.</li>
+      <li><strong>Agios Ioannis Beach</strong> <span class="dist">(drive ~7.5km)</span> — small, scenic, west-facing sunset beach (the "Shirley Valentine" beach from the 1989 film).</li>
+      <li><strong>Elia Beach</strong> <span class="dist">(drive ~14km)</span> — the island's longest organized beach, mixed gay-friendly and family sections; reachable by bus, car, or sea taxi.</li>
+      <li><strong>Kalafatis Beach</strong> — windsurfing/diving hub on the east coast. <em style="font-size:0.85rem;">(distance unconfirmed — verify locally)</em></li>
+    </ul>
+  </section>
+
+  <section id="niche">
+    <div class="banner">Niche / Off-the-Beaten-Path</div>
+    <ul class="plain">
+      <li><strong>Fokos Beach</strong> <span class="dist">(drive ~15km)</span> — the island's most remote/undeveloped beach, reached via Ano Mera on unpaved roads; no sunbeds, one taverna, genuinely quiet even in season.</li>
+      <li><strong>Armenistis Lighthouse</strong> — 19th-century lighthouse on the island's northern tip near Fanari; no bus access, reached by rental car/scooter via Agios Stefanos, or a guided walking tour. <em style="font-size:0.85rem;">(distance unconfirmed — verify locally)</em></li>
+      <li><strong>Rarity Gallery</strong> <span class="dist">(drive 2.5km — sea bus 8 min)</span> — contemporary art in the old town, mostly overlooked by beach-and-club visitors.</li>
+      <li><strong>Ano Mera village life</strong> <span class="dist">(drive ~11km)</span> — cafés on the main square with essentially no tourist crowds, a genuine contrast to Chora.</li>
+      <li><strong>Delos after the tour groups leave</strong> <span class="dist">(ferry from Old Port)</span> — the last afternoon boat back gives a much quieter window on the ruins than the morning cruise-ship rush.</li>
+    </ul>
+  </section>
+
+  <section id="weather">
+    <div class="banner">September Weather</div>
+    <div class="tablewrap">
+    <table>
+      <tr><th>Measure</th><th>Value</th></tr>
+      <tr><td>Daytime air temp</td><td>~24–27°C (75–81°F)</td></tr>
+      <tr><td>Sea temp</td><td>~23–24°C (73–75°F)</td></tr>
+      <tr><td>Rainfall</td><td>Uncommon early in the month; slightly more likely late September</td></tr>
+      <tr><td>Crowds/prices</td><td>Early Sep still high-season; mid/late Sep calmer &amp; better value</td></tr>
+    </table>
+    </div>
+    <p style="font-size:0.9rem; color:var(--ink-soft);">Multiple sources recommend early September for nightlife/beach-club energy and mid-to-late September for a calmer, better-value trip with the same warm sea. Meltemi winds are a known Cyclades factor — can affect ferries and comfort on exposed north-coast beaches; check forecasts close to travel.</p>
+  </section>
+
+  <section id="youtube">
+    <div class="banner">YouTube Research</div>
+    <p style="font-size:0.82rem; color:var(--ink-soft); font-style:italic;">Pulled via the YouTube Data API — channel, date, and description below are confirmed metadata, not guessed from search snippets. Still summaries, not full watch-throughs.</p>
+
+    <div class="yt-item"><span class="ch">Experience Luxury Travel</span> — <a href="https://www.youtube.com/watch?v=4WHGWKs6Sd4">"Top 10 Things To Do in MYKONOS Greece 2026"</a> <span class="date">(Jul 2025)</span><br>Broad, recent overview — good cross-check against Sights above.</div>
+
+    <div class="yt-item"><span class="ch">Travel Tips Group</span> — <a href="https://www.youtube.com/watch?v=-73U7QzvApw">"THE Most COMPLETE MYKONOS Guide! All Travel Tips &amp; Prices."</a> <span class="date">(Feb 2026)</span><br>Practical/logistics-focused, updated prices.</div>
+
+    <div class="yt-item"><span class="ch">Greece and Beyond</span> — <a href="https://www.youtube.com/watch?v=SZRGvjZriIk">"Visiting Delos from Mykonos? 3 Ways Explained"</a> <span class="date">(Mar 2026)</span><br>Compares guided tour vs. independent boat vs. full-day trip.</div>
+
+    <div class="yt-item"><span class="ch">Greece Explained</span> — <a href="https://www.youtube.com/watch?v=cphAuo0bnVc">"Mykonos BEST BEACHES (+ how to avoid getting RIPPED OFF at beach bars)"</a> <span class="date">(Jan 2024)</span><br>Beach-by-beach rundown plus sunbed-pricing tips.</div>
+
+    <div class="yt-item"><span class="ch">Rez World Travel</span> — <a href="https://www.youtube.com/watch?v=4nSIjvbBCwk">"[4k] Mykonos 2026 - 7 Critical Mistakes Tourists Make"</a> <span class="date">(May 2026)</span><br>Budget/logistics pitfalls specific to Mykonos.</div>
+
+    <div class="yt-item"><span class="ch">Stay Fabulous</span> — <a href="https://www.youtube.com/watch?v=ZVWjcjVg3-8">"Mykonos vs Santorini vs Paros: Which Greek Island Is REALLY BEST for YOU?"</a> <span class="date">(Sep 2025)</span><br>Useful if comparing against your Paros leg of the trip.</div>
+  </section>
+
+  <section id="sources" class="srclist">
+    <div class="banner">Further Reading</div>
+
+    <h4>General &amp; overview</h4>
+    <ul>
+      <li><a href="https://www.greeka.com/cyclades/mykonos/">Greeka: Mykonos</a></li>
+      <li><a href="https://santorinidave.com/mykonos-in-september">Santorini Dave: Mykonos in September</a></li>
+    </ul>
+
+    <h4>Getting around</h4>
+    <ul><li><a href="https://mygreecetours.org/mykonos-cruise-port/">mygreecetours.org: Tourlos New Port Guide &amp; Transfers</a></li></ul>
+
+    <h4>Beaches</h4>
+    <ul>
+      <li><a href="https://www.greeka.com/cyclades/mykonos/beaches/panormos/">Greeka: Panormos Beach</a></li>
+      <li><a href="https://www.greeka.com/cyclades/mykonos/beaches/agios-ioannis/">Greeka: Agios Ioannis Beach</a></li>
+      <li><a href="https://www.greeka.com/cyclades/mykonos/beaches/fokos/">Greeka: Fokos Beach</a></li>
+      <li><a href="https://www.greeka.com/cyclades/mykonos/beaches/elia/">Greeka: Elia Beach</a></li>
+      <li><a href="https://www.greeka.com/cyclades/mykonos/beaches/paradise/">Greeka: Paradise Beach</a></li>
+      <li><a href="https://www.greeka.com/cyclades/mykonos/beaches/super-paradise/">Greeka: Super Paradise Beach</a></li>
+      <li><a href="https://www.greeka.com/cyclades/mykonos/beaches/ornos/">Greeka: Ornos Beach</a></li>
+      <li><a href="https://www.mykonostour.com/mykonos_beaches/psarou_beach.html">Mykonos Tour: Psarou Beach</a></li>
+    </ul>
+
+    <h4>Villages &amp; sights</h4>
+    <ul>
+      <li><a href="https://www.greeka.com/cyclades/mykonos/villages/ano-mera/">Greeka: Ano Mera</a></li>
+      <li><a href="https://www.greeka.com/cyclades/mykonos/sightseeing/mykonos-lighthouse/">Greeka: Armenistis Lighthouse</a></li>
+    </ul>
+
+    <h4>Food &amp; drink</h4>
+    <ul>
+      <li><a href="https://santorinidave.com/best-restaurants-mykonos">Santorini Dave: Best Restaurants in Mykonos</a></li>
+      <li><a href="https://www.grekaddict.com/10-mykonos-food-you-must-try/">Grekaddict: 10 Mykonos Foods You Must Try</a></li>
+    </ul>
+
+    <h4>Delos</h4>
+    <ul><li><a href="https://cyclades.travel/ferry/mykonos-to-delos/">Cyclades Travel: Ferry from Mykonos to Delos</a></li></ul>
+
+    <h4>Nightlife</h4>
+    <ul><li><a href="https://santorinidave.com/best-beach-clubs-mykonos">Santorini Dave: Best Beach Clubs in Mykonos</a></li></ul>
+  </section>
+
+  <section id="open">
+    <div class="banner">Open Questions</div>
+    <ul class="plain">
+      <li><strong>Kalafatis Beach</strong> and <strong>Armenistis Lighthouse</strong> distances from the bullseye weren't confidently sourced — left unlabeled; confirm locally or via GPS on arrival.</li>
+      <li><strong>Ano Mera, Fokos, Elia, Agios Ioannis, and Panormos distances</strong> are derived by adding Tourlos's own ~2.5km offset from Chora to each beach's published "from Mykonos Town" figure — directional, not turn-by-turn verified.</li>
+      <li><strong>Taxi scarcity</strong> is repeatedly flagged as a real planning constraint on Mykonos — pre-book where possible, especially for late-night returns from beach clubs.</li>
+      <li><strong>Delos schedule</strong> is seasonal (through October) and weather-dependent — confirm the day's sailing times on arrival, don't assume the 9/10/11:30 pattern holds exactly.</li>
+      <li><strong>September Meltemi winds</strong> can affect ferry schedules and comfort at exposed north-coast beaches (Panormos, Agios Ioannis, Fokos) — check the local forecast before committing a beach day there.</li>
+    </ul>
+  </section>
+
+  <div class="divider">⁘ ⁘ ⁘</div>
+
+</main>
+
+<footer>
+  Mykonos, Greece Research Report — built around a Sep 2026 trip, using Olia Hotel, Tourlos as the reference point.<br>
+  Ready to feed into <em>travel-planning-template.md</em> Phase 1–2 and Phase 6–7 if this becomes a full itinerary.
+</footer>
+
+</body>
+</html>
