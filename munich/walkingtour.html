@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Early-morning walking route from JAMS Music Hotel through Marienplatz's historic core and coffee stops, with two route options and a schematic map.">
+<meta name="theme-color" content="#0A1B33">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Old Town Walk">
+<meta name="format-detection" content="telephone=no">
+<title>Old Town Before Breakfast</title>
+<style>
+/* Trip HTML Guide — Mobile Pocket Guide, single-page build
+   Palette + components follow the trip-html-guide reference stylesheet
+   (Munich Oktoberfest 2026 build) — parchment background, navy chrome,
+   gold accents, oxblood banners/callouts. */
+:root{
+  --bg:#F6EFDD;
+  --card:#FFFFFF;
+  --ink:#231F1B;
+  --ink-soft:#5A5A5A;
+  --blue:#1B3A6B;
+  --blue-deep:#0A1B33;
+  --gold:#C9982F;
+  --gold-deep:#A67A1E;
+  --oxblood:#7A2E27;
+  --line:#D9D9D9;
+  --river:#3E6E94;
+  --river-tint:#D9E6EE;
+  --block:#EFE7D3;
+}
+
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+html,body{height:100%;}
+html{-webkit-text-size-adjust:100%;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Calibri, Arial, 'Helvetica Neue', sans-serif;
+  -webkit-text-size-adjust:100%;
+  padding-left:env(safe-area-inset-left);
+  padding-right:env(safe-area-inset-right);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+
+a{color:var(--blue-deep);}
+
+.wrap{
+  max-width:520px;
+  margin:0 auto;
+  padding:0 22px 44px;
+}
+
+header.hero{
+  padding:16px 22px;
+  padding-top:calc(16px + env(safe-area-inset-top));
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  background:var(--blue-deep);
+  color:var(--bg);
+  border-bottom:3px solid var(--gold);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+header.hero h1{
+  margin:0;
+  font-size:19px;
+  letter-spacing:.02em;
+  font-weight:700;
+}
+header.hero .dates{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:11.5px;
+  letter-spacing:.06em;
+  color:var(--gold);
+  text-align:right;
+  white-space:nowrap;
+}
+
+section{padding-top:26px;}
+
+h2.section-title{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:13.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  text-align:center;
+  color:var(--bg);
+  background:var(--oxblood);
+  margin:0 0 12px;
+  padding:11px 12px;
+  border-radius:3px;
+  border-bottom:2px solid var(--gold);
+}
+
+/* ---------- quick facts ---------- */
+.facts{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:16px 18px;
+}
+.fact-row{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  padding:11px 0;
+  border-bottom:1px dashed var(--line);
+  font-size:15px;
+}
+.fact-row:last-child{border-bottom:none;}
+.fact-row .k{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:11.5px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  flex:0 0 40%;
+  padding-top:2px;
+}
+.fact-row .v{flex:1; text-align:right; font-weight:700;}
+
+/* ---------- compare info-card ---------- */
+.info-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:16px 18px;
+  margin-bottom:14px;
+}
+.info-card h3{margin:0 0 10px; font-size:16.5px;}
+.info-card .row{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:9px 0;
+  border-bottom:1px dashed var(--line);
+  font-size:14.5px;
+}
+.info-card .row:last-child{border-bottom:none;}
+.info-card .row .k{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12px;
+  color:var(--ink-soft);
+  flex:0 0 46%;
+}
+.info-card .row .v{flex:1; text-align:right; font-weight:700;}
+
+/* ---------- day/route pager ---------- */
+.pager{
+  background:var(--blue-deep);
+  color:var(--bg);
+  border-radius:4px;
+  padding:15px 16px;
+  margin-bottom:18px;
+}
+.pager .pager-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:11.5px;
+  letter-spacing:.05em;
+  margin-bottom:6px;
+}
+.pager .pager-top .badge{
+  background:var(--gold);
+  color:var(--blue-deep);
+  padding:3px 10px;
+  border-radius:20px;
+  font-weight:700;
+}
+.pager h2{margin:2px 0 14px; font-size:19px; font-family:Calibri, Arial, sans-serif; letter-spacing:0; text-transform:none; background:none; padding:0; border:none; text-align:left;}
+.pager-buttons{display:flex; justify-content:space-between; gap:10px;}
+.pager-buttons button{
+  flex:1;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.03em;
+  border:none;
+  border-radius:20px;
+  padding:12px 14px;
+  background:var(--oxblood);
+  color:var(--bg);
+}
+.pager-buttons button:disabled{opacity:.35;}
+.day-dots{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin:14px 0 4px;
+}
+.day-dots span{
+  width:7px; height:7px; border-radius:50%;
+  background:rgba(255,255,255,.35);
+}
+.day-dots span.active{background:var(--gold);}
+
+/* ---------- ticket card ---------- */
+.ticket{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:4px;
+  margin-bottom:18px;
+  overflow:visible;
+}
+.ticket-head{
+  background:var(--blue-deep);
+  color:var(--bg);
+  padding:13px 16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  border-radius:4px 4px 0 0;
+}
+.ticket-head .day{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-weight:700;
+  letter-spacing:.1em;
+  font-size:13px;
+}
+.ticket-head .date{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12px;
+  color:var(--gold);
+}
+.perf{
+  position:relative;
+  height:14px;
+  background:
+    radial-gradient(circle 7px at 0 0, transparent 7px, var(--card) 7.5px) top left,
+    radial-gradient(circle 7px at 100% 0, transparent 7px, var(--card) 7.5px) top right;
+  background-repeat:no-repeat;
+  background-size:50% 100%;
+}
+.perf::before{
+  content:"";
+  position:absolute;
+  top:0; left:14px; right:14px;
+  border-top:2px dashed var(--line);
+}
+.ticket-body{padding:17px 18px 19px;}
+.ticket-body .tag{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:11px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--oxblood);
+  margin-bottom:7px;
+}
+.ticket-body h3{
+  margin:0 0 10px;
+  font-size:18.5px;
+  line-height:1.25;
+}
+.ticket-body p{
+  margin:0 0 10px;
+  font-size:15px;
+  line-height:1.6;
+  color:var(--ink);
+}
+.ticket-body p:last-child{margin-bottom:0;}
+
+/* ---------- timeline ---------- */
+.timeline{margin-top:16px;}
+.tl-item{
+  display:flex;
+  gap:12px;
+  padding:12px 0;
+  border-top:1px dashed var(--line);
+}
+.tl-item:first-child{border-top:none;}
+.tl-time{
+  flex:0 0 58px;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:13px;
+  font-weight:700;
+  color:var(--blue-deep);
+  padding-top:1px;
+}
+.tl-body{flex:1; min-width:0;}
+.tl-body .tl-title{font-size:15.5px; font-weight:700; margin-bottom:3px;}
+.tl-body .tl-meta{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12px;
+  color:var(--gold-deep);
+  margin-bottom:4px;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+.tl-body .tl-note{
+  font-size:14px;
+  color:var(--ink-soft);
+  line-height:1.55;
+}
+.tl-body .tl-flag{
+  display:block;
+  margin-top:6px;
+  font-size:13px;
+  color:var(--oxblood);
+  font-weight:700;
+}
+.tl-item.coffee .tl-time{color:var(--oxblood);}
+
+/* ---------- map card ---------- */
+.map-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:12px 12px 6px;
+  margin:0 0 18px;
+}
+.map-card svg{display:block; width:100%; height:auto;}
+.map-caption{
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12px;
+  color:var(--ink-soft);
+  padding:10px 6px 4px;
+  line-height:1.5;
+}
+.map-legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 16px;
+  padding:2px 6px 12px;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:12px;
+  color:var(--ink-soft);
+}
+.map-legend span{display:inline-flex; align-items:center; gap:6px;}
+.map-legend i{width:13px; height:13px; display:inline-block; border-radius:50%; flex:none;}
+.map-legend .lroute{width:18px; height:3px; border-radius:2px; display:inline-block;}
+
+/* ---------- callout box ---------- */
+.callout-box{
+  background:var(--card);
+  color:var(--ink);
+  border:2px solid var(--oxblood);
+  border-radius:4px;
+  padding:20px;
+  margin-bottom:14px;
+}
+.callout-box h3{margin:0 0 10px; font-size:17px; color:var(--oxblood);}
+.callout-box p{
+  font-size:14.5px;
+  line-height:1.6;
+  margin:0 0 12px;
+  color:var(--ink);
+}
+.callout-box p:last-child{margin-bottom:0;}
+
+/* ---------- checklist ---------- */
+.checklist{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:6px 18px;
+}
+.checklist li{
+  list-style:none;
+  display:flex;
+  gap:12px;
+  padding:13px 0;
+  border-bottom:1px dashed var(--line);
+  font-size:14.5px;
+  line-height:1.5;
+}
+.checklist li:last-child{border-bottom:none;}
+.checklist .box{
+  flex:0 0 18px;
+  width:18px;
+  height:18px;
+  border:1.5px solid var(--oxblood);
+  border-radius:2px;
+  margin-top:2px;
+}
+ul.checklist{margin:0; padding-left:0;}
+
+footer.page-footer{
+  text-align:center;
+  margin-top:32px;
+  font-family:'Helvetica Neue', Arial, sans-serif;
+  font-size:11.5px;
+  letter-spacing:.08em;
+  line-height:1.7;
+  text-transform:none;
+  color:var(--ink-soft);
+}
+
+@media (max-width:380px){
+  .wrap{padding:0 16px 40px;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Old Town Before Breakfast</h1>
+  <div class="dates">MUNICH<br>JAMS MUSIC HOTEL</div>
+</header>
+
+<div class="wrap">
+
+  <section style="padding-top:22px;">
+    <h2 class="section-title">Quick Facts</h2>
+    <div class="facts">
+      <div class="fact-row"><div class="k">Pace</div><div class="v">20 min / mile</div></div>
+      <div class="fact-row"><div class="k">Distance cap</div><div class="v">≤ 3.0 mi (ankle)</div></div>
+      <div class="fact-row"><div class="k">Coffee stops</div><div class="v">2</div></div>
+      <div class="fact-row"><div class="k">Suggested start</div><div class="v">7:30 AM</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Two Ways to Run It</h2>
+    <div class="info-card">
+      <h3>A vs. B at a glance</h3>
+      <div class="row"><div class="k">Option A — walk both ways</div><div class="v">2.6 mi</div></div>
+      <div class="row"><div class="k">Option B — tram there, walk back</div><div class="v">2.35 mi</div></div>
+      <div class="row"><div class="k">Both</div><div class="v">~2 hrs, 2 coffee stops</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Route Detail</h2>
+
+    <div class="pager">
+      <div class="pager-top">
+        <span>ROUTE OPTION</span>
+        <span class="badge" id="pagerBadge">1 OF 2</span>
+      </div>
+      <h2 id="pagerTitle">A — Walk Both Ways</h2>
+      <div class="pager-buttons">
+        <button id="prevBtn" disabled>&lsaquo; Prev</button>
+        <button id="nextBtn">Next &rsaquo;</button>
+      </div>
+      <div class="day-dots"><span class="active" id="dot0"></span><span id="dot1"></span></div>
+    </div>
+
+    <!-- ===================== OPTION A ===================== -->
+    <div id="panelA">
+      <div class="ticket">
+        <div class="ticket-head"><span class="day">OPTION A</span><span class="date">2.6 MI · ~52 MIN MOVING</span></div>
+        <div class="perf"></div>
+        <div class="ticket-body">
+          <div class="tag">Walk both ways</div>
+          <h3>Hotel &rarr; Isartor &rarr; Marienplatz &rarr; Hotel</h3>
+          <p>Out of the hotel, over the Ludwigsbrücke, through Isartor into the old town, and back the same way. Uses most of the 3-mile budget just getting there and back — the option if you'd rather skip a tram ticket before coffee.</p>
+
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-time">7:30</div>
+              <div class="tl-body">
+                <div class="tl-title">Depart JAMS Music Hotel</div>
+                <div class="tl-note">Onto Rosenheimer Str. toward the Ludwigsbrücke. The only genuinely dull stretch of either route — over in 10 minutes.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">7:41</div>
+              <div class="tl-body">
+                <div class="tl-title">Isartor</div>
+                <div class="tl-meta">0.55 mi from hotel</div>
+                <div class="tl-note">One of three surviving gates from Munich's 14th-century city wall (1337), with a 19th-century fresco over the arch. Cross the Isar on the Ludwigsbrücke to get here — the Deutsches Museum sits on its own island just upstream.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">7:48</div>
+              <div class="tl-body">
+                <div class="tl-title">Marienplatz</div>
+                <div class="tl-meta">0.35 mi via Tal</div>
+                <div class="tl-note">Munich's central square since the 1100s. The Neo-Gothic Neues Rathaus dominates the north side; the gilded Mariensäule column (1638) marks the center.</div>
+                <span class="tl-flag">Glockenspiel doesn't perform until 11 AM — an architecture stop, not a show.</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">7:52</div>
+              <div class="tl-body">
+                <div class="tl-title">Frauenkirche</div>
+                <div class="tl-meta">0.2 mi round trip</div>
+                <div class="tl-note">The cathedral's twin onion domes (1524–25) are Munich's skyline signature. Worth the two-minute detour just to stand under them — no tower climb needed.</div>
+              </div>
+            </div>
+            <div class="tl-item coffee">
+              <div class="tl-time">8:03</div>
+              <div class="tl-body">
+                <div class="tl-title">Coffee — Rischart Café am Marienplatz</div>
+                <div class="tl-meta">~20 min break, right on the square</div>
+                <div class="tl-note">Bakery-café at Marienplatz 18. If the sit-down café isn't open yet, the bakery counter next to it usually is.</div>
+                <span class="tl-flag">Confirm hours the morning of — not well documented online.</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">8:26</div>
+              <div class="tl-body">
+                <div class="tl-title">Viktualienmarkt</div>
+                <div class="tl-meta">0.15 mi from Marienplatz</div>
+                <div class="tl-note">Open-air market since 1807, built around a maypole. This early it's stallholders setting up, not tourist crowds — a good slow lap with coffee in hand.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">8:44</div>
+              <div class="tl-body">
+                <div class="tl-title">Asam Church</div>
+                <div class="tl-meta">0.4 mi round trip, down Sendlinger Str.</div>
+                <div class="tl-note">A tiny, densely ornamented Baroque church (1733–46) the Asam brothers built onto their own house next door. Free, and five minutes inside is enough.</div>
+              </div>
+            </div>
+            <div class="tl-item coffee">
+              <div class="tl-time">8:56</div>
+              <div class="tl-body">
+                <div class="tl-title">Coffee — Café Frischhut ("Die Schmalznudel")</div>
+                <div class="tl-meta">~20 min break, 0.1 mi from Viktualienmarkt</div>
+                <div class="tl-note">A Munich original near the market, famous for one thing: the Schmalznudel, a flat fried-dough pastry served warm. Deliberately your last stop, not your first.</div>
+                <span class="tl-flag">Opens 9:00 AM weekdays — timed to land here right on schedule.</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">9:16</div>
+              <div class="tl-body">
+                <div class="tl-title">Back to the hotel</div>
+                <div class="tl-meta">0.85 mi via Isartor &amp; the Ludwigsbrücke</div>
+                <div class="tl-note">Retrace the outbound path. Expect to be back around 9:30–9:45 if you left at 7:30.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <svg viewBox="0 0 640 520" role="img" aria-label="Schematic map of the walking route from JAMS Music Hotel across the Ludwigsbrücke to Isartor, Marienplatz, Viktualienmarkt and Asam Church, and back the same way.">
+          <path d="M486,20 C468,90 508,150 484,230 C462,300 500,360 480,440 C470,470 476,495 486,520 L520,520 C512,495 506,470 516,440 C536,360 498,300 520,230 C544,150 504,90 522,20 Z"
+                fill="var(--river-tint)" stroke="var(--river)" stroke-width="2"/>
+          <text x="503" y="80" font-family="Helvetica Neue, Arial" font-size="11" fill="var(--river)" text-anchor="middle" transform="rotate(90 503 80)">ISAR</text>
+          <g fill="var(--block)" stroke="var(--line)">
+            <rect x="150" y="150" width="46" height="34" rx="3"/>
+            <rect x="205" y="140" width="40" height="30" rx="3"/>
+            <rect x="150" y="200" width="40" height="30" rx="3"/>
+            <rect x="330" y="170" width="42" height="32" rx="3"/>
+            <rect x="330" y="220" width="42" height="30" rx="3"/>
+            <rect x="190" y="290" width="44" height="30" rx="3"/>
+            <rect x="290" y="340" width="42" height="30" rx="3"/>
+            <rect x="150" y="380" width="40" height="30" rx="3"/>
+            <rect x="330" y="380" width="42" height="30" rx="3"/>
+          </g>
+          <g stroke="var(--line)" stroke-width="6" fill="none" stroke-linecap="round">
+            <path d="M430,300 L280,230"/>
+            <path d="M280,230 L270,310"/>
+            <path d="M270,310 L220,360"/>
+            <path d="M270,310 L245,330"/>
+            <path d="M280,230 L230,190"/>
+          </g>
+          <line x1="486" y1="300" x2="560" y2="300" stroke="var(--ink-soft)" stroke-width="5" stroke-linecap="round"/>
+          <text x="523" y="292" font-family="Helvetica Neue, Arial" font-size="10" fill="var(--ink-soft)" text-anchor="middle">Ludwigsbrücke</text>
+          <path d="M560,300 L430,300 L280,230 L230,190 L280,230 L270,310 L220,360 L245,330 L430,300 L560,300"
+                fill="none" stroke="var(--gold-deep)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <g transform="translate(560,300)"><path d="M0,-13 L4,-4 L14,-3 L6,4 L8,14 L0,9 L-8,14 L-6,4 L-14,-3 L-4,-4 Z" fill="var(--oxblood)"/></g>
+          <text x="560" y="332" font-family="Helvetica Neue, Arial" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">JAMS Hotel</text>
+          <g font-family="Helvetica Neue, Arial" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">
+            <circle cx="430" cy="300" r="10" fill="var(--blue-deep)"/><text x="430" y="304" fill="#fff">2</text><text x="430" y="322">Isartor</text>
+            <circle cx="280" cy="230" r="10" fill="var(--blue-deep)"/><text x="280" y="234" fill="#fff">3</text><text x="280" y="216">Marienplatz</text>
+            <circle cx="230" cy="190" r="9" fill="var(--blue-deep)"/><text x="230" y="194" fill="#fff">4</text><text x="230" y="174">Frauenkirche</text>
+            <circle cx="300" cy="240" r="9" fill="var(--oxblood)"/><text x="300" y="244" fill="#fff">5</text><text x="316" y="252" text-anchor="start">Rischart</text>
+            <circle cx="270" cy="310" r="9" fill="var(--blue-deep)"/><text x="270" y="314" fill="#fff">6</text><text x="270" y="332">Viktualienmarkt</text>
+            <circle cx="220" cy="360" r="9" fill="var(--blue-deep)"/><text x="220" y="364" fill="#fff">7</text><text x="196" y="376" text-anchor="middle">Asam Ch.</text>
+            <circle cx="245" cy="330" r="9" fill="var(--oxblood)"/><text x="245" y="334" fill="#fff">8</text><text x="245" y="405" text-anchor="middle">Frischhut</text>
+          </g>
+        </svg>
+        <div class="map-caption">Schematic, not to scale — shows sequence and rough direction, not exact streets.</div>
+        <div class="map-legend">
+          <span><i style="background:var(--blue-deep)"></i>Historic stop</span>
+          <span><i style="background:var(--oxblood)"></i>Coffee stop</span>
+          <span><span class="lroute" style="background:var(--gold-deep)"></span>Walking route</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== OPTION B ===================== -->
+    <div id="panelB" style="display:none;">
+      <div class="ticket">
+        <div class="ticket-head"><span class="day">OPTION B</span><span class="date">2.35 MI · ~47 MIN MOVING</span></div>
+        <div class="perf"></div>
+        <div class="ticket-body">
+          <div class="tag">Tram there, walk the loop + back</div>
+          <h3>Tram to Isartor &rarr; Bigger Loop &rarr; Walk Back</h3>
+          <p>A two-stop tram from right outside the hotel drops you at Isartor, so the loop through the center can run a little longer — including a look at Hofbräuhaus — while you still walk less overall than Option A. Walk back at the end either way.</p>
+
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-time">7:45</div>
+              <div class="tl-body">
+                <div class="tl-title">Hotel &rarr; Tram 17 &rarr; Isartor</div>
+                <div class="tl-meta">1 min walk + 2 stops</div>
+                <div class="tl-note">The "Am Gasteig" tram stop is about a minute from the hotel door; Tram 17 reaches Isartor in two stops. Backup: Rosenheimer Platz S-Bahn (~4 min walk), S1/S8 to Marienplatz station.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">7:50</div>
+              <div class="tl-body">
+                <div class="tl-title">Isartor</div>
+                <div class="tl-meta">arrive by tram</div>
+                <div class="tl-note">One of three surviving gates from Munich's 14th-century city wall (1337). The walking part of the morning starts here.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">7:57</div>
+              <div class="tl-body">
+                <div class="tl-title">Marienplatz</div>
+                <div class="tl-meta">0.35 mi via Tal</div>
+                <div class="tl-note">The Neo-Gothic Neues Rathaus and the gilded 1638 Mariensäule column anchor the square.</div>
+                <span class="tl-flag">Glockenspiel doesn't perform until 11 AM.</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">8:03</div>
+              <div class="tl-body">
+                <div class="tl-title">Hofbräuhaus / Platzl</div>
+                <div class="tl-meta">0.3 mi round trip</div>
+                <div class="tl-note">The world's most famous beer hall, a royal brewery since 1589. At this hour it's just the cleaning crew — worth two minutes to see the painted facade and Platzl square with no tour groups in it.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">8:09</div>
+              <div class="tl-body">
+                <div class="tl-title">Frauenkirche</div>
+                <div class="tl-meta">0.2 mi round trip</div>
+                <div class="tl-note">Twin onion domes, 1524–25, the skyline signature. No tower climb needed.</div>
+              </div>
+            </div>
+            <div class="tl-item coffee">
+              <div class="tl-time">8:15</div>
+              <div class="tl-body">
+                <div class="tl-title">Coffee — Rischart Café am Marienplatz</div>
+                <div class="tl-meta">~20 min break, right on the square</div>
+                <div class="tl-note">Marienplatz 18. Bakery counter if the café seating isn't open yet.</div>
+                <span class="tl-flag">Confirm hours the morning of.</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">8:38</div>
+              <div class="tl-body">
+                <div class="tl-title">Viktualienmarkt</div>
+                <div class="tl-meta">0.15 mi</div>
+                <div class="tl-note">Open-air market since 1807 — stallholders setting up rather than crowds this early.</div>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">8:58</div>
+              <div class="tl-body">
+                <div class="tl-title">Asam Church</div>
+                <div class="tl-meta">0.4 mi round trip, down Sendlinger Str.</div>
+                <div class="tl-note">Dense little Baroque church (1733–46) built onto the Asam brothers' own house. Five minutes inside is enough.</div>
+              </div>
+            </div>
+            <div class="tl-item coffee">
+              <div class="tl-time">9:06</div>
+              <div class="tl-body">
+                <div class="tl-title">Coffee — Café Frischhut ("Die Schmalznudel")</div>
+                <div class="tl-meta">~20 min break</div>
+                <div class="tl-note">Warm Schmalznudel and coffee, a Munich original by the market.</div>
+                <span class="tl-flag">Opens 9:00 AM weekdays — this route lands you here right on time.</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">9:26</div>
+              <div class="tl-body">
+                <div class="tl-title">Walk back to the hotel</div>
+                <div class="tl-meta">0.85 mi via Isartor &amp; the Ludwigsbrücke</div>
+                <div class="tl-note">Back across the same bridge. Expect roughly 9:40–9:45 if you started the tram at 7:45.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <svg viewBox="0 0 640 520" role="img" aria-label="Schematic map of Option B: tram from JAMS Music Hotel to Isartor, then a walking loop through Marienplatz, Hofbräuhaus, Viktualienmarkt and Asam Church, walking back to the hotel across the Ludwigsbrücke.">
+          <path d="M486,20 C468,90 508,150 484,230 C462,300 500,360 480,440 C470,470 476,495 486,520 L520,520 C512,495 506,470 516,440 C536,360 498,300 520,230 C544,150 504,90 522,20 Z"
+                fill="var(--river-tint)" stroke="var(--river)" stroke-width="2"/>
+          <text x="503" y="80" font-family="Helvetica Neue, Arial" font-size="11" fill="var(--river)" text-anchor="middle" transform="rotate(90 503 80)">ISAR</text>
+          <g fill="var(--block)" stroke="var(--line)">
+            <rect x="150" y="150" width="46" height="34" rx="3"/>
+            <rect x="205" y="140" width="40" height="30" rx="3"/>
+            <rect x="150" y="200" width="40" height="30" rx="3"/>
+            <rect x="330" y="170" width="42" height="32" rx="3"/>
+            <rect x="330" y="220" width="42" height="30" rx="3"/>
+            <rect x="190" y="290" width="44" height="30" rx="3"/>
+            <rect x="290" y="340" width="42" height="30" rx="3"/>
+            <rect x="150" y="380" width="40" height="30" rx="3"/>
+            <rect x="330" y="380" width="42" height="30" rx="3"/>
+            <rect x="355" y="255" width="38" height="28" rx="3"/>
+          </g>
+          <g stroke="var(--line)" stroke-width="6" fill="none" stroke-linecap="round">
+            <path d="M430,300 L280,230"/>
+            <path d="M280,230 L270,310"/>
+            <path d="M270,310 L220,360"/>
+            <path d="M270,310 L245,330"/>
+            <path d="M280,230 L230,190"/>
+            <path d="M430,300 L350,260 L280,230"/>
+          </g>
+          <line x1="486" y1="300" x2="560" y2="300" stroke="var(--ink-soft)" stroke-width="5" stroke-linecap="round"/>
+          <text x="523" y="292" font-family="Helvetica Neue, Arial" font-size="10" fill="var(--ink-soft)" text-anchor="middle">Ludwigsbrücke</text>
+          <path d="M560,300 L430,300" fill="none" stroke="var(--blue)" stroke-width="4" stroke-linecap="round" stroke-dasharray="2,7"/>
+          <text x="497" y="316" font-family="Helvetica Neue, Arial" font-size="10" fill="var(--blue)" text-anchor="middle">Tram 17</text>
+          <path d="M430,300 L350,260 L280,230 L230,190 L280,230 L270,310 L220,360 L245,330 L430,300 L560,300"
+                fill="none" stroke="var(--gold-deep)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <g transform="translate(560,300)"><path d="M0,-13 L4,-4 L14,-3 L6,4 L8,14 L0,9 L-8,14 L-6,4 L-14,-3 L-4,-4 Z" fill="var(--oxblood)"/></g>
+          <text x="560" y="332" font-family="Helvetica Neue, Arial" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">JAMS Hotel</text>
+          <g font-family="Helvetica Neue, Arial" font-size="11" font-weight="700" fill="var(--ink)" text-anchor="middle">
+            <circle cx="430" cy="300" r="10" fill="var(--blue-deep)"/><text x="430" y="304" fill="#fff">2</text><text x="430" y="322">Isartor</text>
+            <circle cx="280" cy="230" r="10" fill="var(--blue-deep)"/><text x="280" y="234" fill="#fff">3</text><text x="280" y="216">Marienplatz</text>
+            <circle cx="350" cy="260" r="9" fill="var(--blue-deep)"/><text x="350" y="264" fill="#fff">4</text><text x="368" y="268" text-anchor="start">Hofbräuhaus</text>
+            <circle cx="230" cy="190" r="9" fill="var(--blue-deep)"/><text x="230" y="194" fill="#fff">5</text><text x="230" y="174">Frauenkirche</text>
+            <circle cx="300" cy="240" r="9" fill="var(--oxblood)"/><text x="300" y="244" fill="#fff">6</text><text x="316" y="252" text-anchor="start">Rischart</text>
+            <circle cx="270" cy="310" r="9" fill="var(--blue-deep)"/><text x="270" y="314" fill="#fff">7</text><text x="270" y="332">Viktualienmarkt</text>
+            <circle cx="220" cy="360" r="9" fill="var(--blue-deep)"/><text x="220" y="364" fill="#fff">8</text><text x="196" y="376" text-anchor="middle">Asam Ch.</text>
+            <circle cx="245" cy="330" r="9" fill="var(--oxblood)"/><text x="245" y="334" fill="#fff">9</text><text x="245" y="405" text-anchor="middle">Frischhut</text>
+          </g>
+        </svg>
+        <div class="map-caption">Schematic, not to scale. Dashed line: the tram leg (rides, not walked).</div>
+        <div class="map-legend">
+          <span><i style="background:var(--blue-deep)"></i>Historic stop</span>
+          <span><i style="background:var(--oxblood)"></i>Coffee stop</span>
+          <span><span class="lroute" style="background:var(--gold-deep)"></span>Walking</span>
+          <span><span class="lroute" style="background:repeating-linear-gradient(90deg,var(--blue) 0 4px, transparent 4px 8px)"></span>Tram</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <h2 class="section-title">Before You Go</h2>
+    <div class="callout-box">
+      <h3>Built around the ankle</h3>
+      <p>Both routes stay under 3 miles and skip every tower climb (Frauenkirche, St. Peter's, Neues Rathaus) — street level only. Old-town cobblestones are mostly flat but uneven in patches; the 20-min-mile pace has slack built in, so there's no need to push through it.</p>
+    </div>
+    <ul class="checklist">
+      <li><div class="box"></div><div>Confirm Rischart Café am Marienplatz's hours the morning of — not well documented online. The bakery counter tends to open earlier than sit-down café service.</div></li>
+      <li><div class="box"></div><div>Layer up — late-September mornings in Munich run cool, often near 50°F/10°C before sunrise.</div></li>
+      <li><div class="box"></div><div>For Option B: a single MVV ticket (or the MVGO app) covers the tram or S-Bahn hop — no day pass needed for one ride.</div></li>
+    </ul>
+  </section>
+
+  <footer class="page-footer">
+    DISTANCES &amp; TIMES ARE ROUTE ESTIMATES FOR PLANNING, NOT MEASURED GPS TRACKS<br>
+    CAFÉ HOURS CURRENT AS OF SEPT 2026 RESEARCH — RECONFIRM CLOSE TO TRAVEL
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var options = [
+    { badge: '1 OF 2', title: 'A — Walk Both Ways', panel: 'panelA' },
+    { badge: '2 OF 2', title: 'B — Tram There, Walk Back', panel: 'panelB' }
+  ];
+  var idx = 0;
+  var badge = document.getElementById('pagerBadge');
+  var title = document.getElementById('pagerTitle');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+  var panelA = document.getElementById('panelA');
+  var panelB = document.getElementById('panelB');
+  var dots = [document.getElementById('dot0'), document.getElementById('dot1')];
+
+  function render(){
+    var opt = options[idx];
+    badge.textContent = opt.badge;
+    title.textContent = opt.title;
+    panelA.style.display = (opt.panel === 'panelA') ? '' : 'none';
+    panelB.style.display = (opt.panel === 'panelB') ? '' : 'none';
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === options.length - 1;
+    dots.forEach(function(d, i){ d.className = (i === idx) ? 'active' : ''; });
+  }
+  prevBtn.addEventListener('click', function(){ if(idx > 0){ idx--; render(); } });
+  nextBtn.addEventListener('click', function(){ if(idx < options.length - 1){ idx++; render(); } });
+  render();
+})();
+</script>
+</body>
+</html>
