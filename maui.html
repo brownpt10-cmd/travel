@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B2E3A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Maui Pocket Guide</title>
+<style>
+:root{
+  --bg:#ECECEA; --card:#FFFFFF; --ink:#1E1B17; --soft:#5A554C; --line:#DCD8CF;
+  --navy:#0B2E3A; --gold:#C9982F; --gold-soft:#F6ECD2; --maroon:#8A2E26; --green:#2F6B4F; --green-soft:#E6F0EA;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Calibri,Arial,sans-serif;line-height:1.45;-webkit-text-size-adjust:100%;padding-bottom:calc(70px + env(safe-area-inset-bottom))}
+a{color:var(--navy)}
+header.top{position:sticky;top:0;z-index:30;background:var(--navy);color:#fff;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;border-bottom:3px solid var(--gold)}
+header.top h1{margin:0;font-size:1.05rem;letter-spacing:.02em}
+header.top .sub{font-size:.75rem;color:var(--gold-soft);margin-top:2px}
+main{max-width:520px;margin:0 auto;padding:0 16px}
+.js .page{display:none}
+.js .page.active{display:block}
+.eyebrow{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--maroon);font-weight:700;margin:20px 0 6px}
+.banner{background:var(--maroon);color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700;padding:8px 12px;border-radius:6px;margin:22px 0 10px}
+h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--navy);border-bottom:1px solid var(--line);padding-bottom:4px;margin:18px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card.top{border-left:4px solid var(--gold)}
+.card .name{font-weight:700;color:var(--navy);font-size:.98rem}
+.card p{margin:5px 0 0;font-size:.9rem;color:var(--soft)}
+.card p b{color:var(--ink)}
+.dist{display:inline-block;font-size:.72rem;color:var(--navy);background:var(--gold-soft);border-radius:999px;padding:1px 8px;margin-left:4px;white-space:nowrap;font-weight:600}
+.chip{display:inline-block;font-size:.66rem;text-transform:uppercase;letter-spacing:.04em;color:var(--maroon);border:1px solid var(--maroon);border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:middle}
+.maplink{display:inline-block;margin-top:7px;font-size:.78rem;font-weight:600;text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:3px 9px;color:var(--navy);background:#FAFAF8}
+.callout{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--maroon);border-radius:8px;padding:12px 14px;margin:12px 0;font-size:.9rem}
+.callout.good{border-left-color:var(--green);background:var(--green-soft)}
+.callout b{color:var(--navy)}
+.hero{background:var(--card);border-radius:12px;border:1px solid var(--line);padding:16px;margin-top:16px}
+.hero h2{margin:0 0 4px;font-size:1.25rem;color:var(--navy)}
+.hero p{margin:0;color:var(--soft);font-size:.9rem}
+.facts{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-top:12px;overflow:hidden}
+.facts div{display:flex;justify-content:space-between;gap:12px;padding:9px 14px;border-bottom:1px solid var(--line);font-size:.88rem}
+.facts div:last-child{border-bottom:none}
+.facts span:first-child{color:var(--soft)}
+.facts span:last-child{font-weight:600;text-align:right}
+.navcard{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 14px;margin-bottom:8px;text-decoration:none;color:var(--ink)}
+.navcard b{color:var(--navy)}
+.navcard small{display:block;color:var(--soft);font-size:.8rem}
+.navcard .arr{color:var(--gold);font-size:1.3rem}
+/* pager */
+.pager{display:flex;align-items:center;justify-content:space-between;margin:16px 0 10px}
+.pager button{background:var(--navy);color:#fff;border:none;border-radius:8px;padding:9px 14px;font-size:.85rem;font-weight:600}
+.pager button:disabled{opacity:.3}
+.badge{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--maroon)}
+.dots{display:flex;gap:6px;justify-content:center;margin-bottom:10px}
+.dots span{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.dots span.on{background:var(--gold)}
+.ticket{background:var(--navy);color:#fff;border-radius:12px 12px 0 0;padding:14px}
+.ticket h2{margin:0;font-size:1.1rem}
+.ticket p{margin:4px 0 0;font-size:.82rem;color:var(--gold-soft)}
+.timeline{background:var(--card);border:1px solid var(--line);border-top:none;border-radius:0 0 12px 12px;padding:6px 14px 10px}
+.stop{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.stop:last-child{border-bottom:none}
+.stop .t{flex:0 0 58px;font-size:.75rem;font-weight:700;color:var(--maroon);padding-top:2px}
+.stop .d{font-size:.88rem}
+.stop .d b{color:var(--navy)}
+.stop .d span{display:block;color:var(--soft);font-size:.82rem;margin-top:2px}
+.day{display:none}
+.day.on{display:block}
+.noscript .day{display:block;margin-bottom:20px}
+ul.check{list-style:none;padding:0;margin:0}
+ul.check li{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px 10px 36px;margin-bottom:8px;font-size:.88rem;position:relative}
+ul.check li:before{content:"☐";position:absolute;left:12px;top:9px;color:var(--gold);font-size:1rem}
+.yt{font-size:.88rem}
+.yt .ch{color:var(--maroon);font-weight:700}
+.yt .dt{color:var(--soft);font-size:.78rem}
+.src a{display:block;font-size:.85rem;padding:6px 0;border-bottom:1px solid var(--line);text-decoration:none}
+/* bottom nav */
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--navy);display:flex;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom));border-top:3px solid var(--gold)}
+nav.tabs a{flex:1;text-align:center;color:#C9D3D6;text-decoration:none;font-size:.68rem;font-weight:600;letter-spacing:.03em;padding:4px 0}
+nav.tabs a .i{display:block;font-size:1.15rem;line-height:1.2}
+nav.tabs a.active{color:var(--gold)}
+footer{text-align:center;font-size:.72rem;color:var(--soft);padding:24px 0 10px}
+@media (max-width:380px){main{padding:0 12px}.card{padding:11px 12px}}
+</style>
+</head>
+<body>
+<script>document.documentElement.className='js';</script>
+
+<header class="top">
+  <h1>Maui · Wailea Pocket Guide</h1>
+  <div class="sub">Base: Wailea Beach Resort – Marriott · Research as of Oct 9, 2026</div>
+</header>
+
+<main>
+
+<!-- ================= HOME ================= -->
+<section class="page" id="home">
+  <div class="hero">
+    <h2>Aloha, Charla</h2>
+    <p>Waterfalls tumbling through bamboo. Lavender fields high above the clouds. Lava coastlines where ancient trails still run to the sea. Maui's wild side is closer to Wailea than you think, and the island's best tables are waiting at the end of every day.</p>
+  </div>
+
+  <div class="facts">
+    <div><span>Hotel</span><span>Wailea Beach Resort – Marriott</span></div>
+    <div><span>Address</span><span>3700 Wailea Alanui Dr, Wailea</span></div>
+    <div><span>Car</span><span>Needed for everything off the strip</span></div>
+    <div><span>On-foot strip</span><span>Wailea Beach Path · Shops at Wailea</span></div>
+    <div><span>Roy's Kaanapali</span><span>~1 hr 15 min each way</span></div>
+    <div><span>Hana town</span><span>2.5–3 hr each way</span></div>
+  </div>
+
+  <p class="eyebrow">Jump to</p>
+  <a class="navcard" href="#days"><div><b>Day Plans</b><small>6 swipeable plans, each with a dinner pick</small></div><span class="arr">›</span></a>
+  <a class="navcard" href="#eat"><div><b>Roy's-Style Dining</b><small>Closest first, with walk/drive times</small></div><span class="arr">›</span></a>
+  <a class="navcard" href="#do"><div><b>Hana-Feel &amp; Daytime</b><small>Waterfalls, Upcountry, lava coast, valleys</small></div><span class="arr">›</span></a>
+  <a class="navcard" href="#info"><div><b>Info &amp; Bookings</b><small>Reservations checklist, getting around, videos, sources</small></div><span class="arr">›</span></a>
+
+  <p class="eyebrow">Island highlights</p>
+  <div class="card top"><span class="name">The Road to Hana, Reimagined</span><p>Wind through the surf town of Pāʻia, watch sea turtles sun themselves at Hoʻokipa, and swim beneath Twin Falls before the road opens onto the lava-and-surf drama of Keʻanae. Then sunset dinner at the legendary Mama's Fish House.</p></div>
+  <div class="card top"><span class="name">Upcountry Escape</span><p>Trade sea breezes for cool mountain air. Stroll botanical gardens and lavender fields, taste fresh chèvre and estate wine, and linger on the porch of a historic cattle ranch on the slopes of Haleakalā.</p></div>
+  <div class="card top"><span class="name">Where Lava Meets the Sea</span><p>Just twenty minutes south, La Pérouse Bay unfolds in black lava and turquoise water. Walk the ancient King's Trail at first light, when the coast is golden and quiet.</p></div>
+</section>
+
+<!-- ================= DAYS ================= -->
+<section class="page" id="days">
+  <div class="pager">
+    <button id="prev" type="button">‹ Prev</button>
+    <span class="badge" id="dayBadge">Plan 1 of 6</span>
+    <button id="next" type="button">Next ›</button>
+  </div>
+  <div class="dots" id="dots"></div>
+
+  <div class="day on">
+    <div class="ticket"><h2>Waterfalls &amp; Mama's</h2><p>The magic of the Hana Highway, half the drive · ~22 mi to Pāʻia (40 min)</p></div>
+    <div class="timeline">
+      <div class="stop"><div class="t">7:00a</div><div class="d"><b>Leave Wailea</b><span>Gas up in Kahului. Bring cash and water.</span></div></div>
+      <div class="stop"><div class="t">7:45a</div><div class="d"><b>Pāʻia breakfast</b><span>Surf town; coffee and pastries before the road.</span></div></div>
+      <div class="stop"><div class="t">8:30a</div><div class="d"><b>Hoʻokipa Lookout</b><span>Big-wave windsurf/surf beach; green sea turtles haul out on the sand (look from a distance).</span></div></div>
+      <div class="stop"><div class="t">9:00a</div><div class="d"><b>Twin Falls (MM 2)</b><span>$10/car, 55 stalls, first-come. Gates 7:10a, last entry 4:30p. Lower falls ~¼ mi; upper ~1.4 mi RT. Closed to visitors the 1st Saturday of each month.</span></div></div>
+      <div class="stop"><div class="t">10:30a</div><div class="d"><b>Bamboo, one-lane bridges, roadside falls</b><span>Garden of Eden Arboretum (~MM 10) is optional; check hours that morning.</span></div></div>
+      <div class="stop"><div class="t">12:00p</div><div class="d"><b>Keʻanae Peninsula (~MM 17)</b><span>Black lava, crashing surf, the old stone church, Aunty Sandy's banana bread. <b>Turn around here.</b></span></div></div>
+      <div class="stop"><div class="t">5:00p</div><div class="d"><b>Dinner: Mama's Fish House</b><span>Kūʻau, on the way home. Book well ahead. Stuffed mahi.</span></div></div>
+    </div>
+    <div class="callout">If you do want the <b>full Road to Hana</b>, Waiʻānapanapa (black sand) needs a timed entry + parking reservation (30 days out, no same-day). A guided van tour spares you the 12-hour driving day.</div>
+  </div>
+
+  <div class="day">
+    <div class="ticket"><h2>Upcountry &amp; ʻUlupalakua</h2><p>Cool, green, ranch-and-farm Maui · ~30 mi (50 min)</p></div>
+    <div class="timeline">
+      <div class="stop"><div class="t">8:30a</div><div class="d"><b>Grandma's Coffee House, Keokea</b><span>Maui-grown coffee, banana bread, porch views.</span></div></div>
+      <div class="stop"><div class="t">9:30a</div><div class="d"><b>Kula Botanical Garden</b><span>9a–4p daily, last entry 3:15p, $15.</span></div></div>
+      <div class="stop"><div class="t">11:00a</div><div class="d"><b>Aliʻi Kula Lavender</b><span><b>Fri–Mon only</b>, 10a–4p. $5 ($2 military/seniors). Otherwise go to <b>Surfing Goat Dairy</b> (~30-min tour and tasting).</span></div></div>
+      <div class="stop"><div class="t">12:30p</div><div class="d"><b>ʻUlupalakua Ranch Store</b><span>Elk or beef burgers on the porch.</span></div></div>
+      <div class="stop"><div class="t">1:30p</div><div class="d"><b>MauiWine tasting</b><span>11a–5p, reservations recommended (Tock). Pineapple wine is the novelty.</span></div></div>
+      <div class="stop"><div class="t">2:30p</div><div class="d"><b>Optional: backside drive toward Kaupō</b><span>Lava, canyons, empty road. Out-and-back only; check your rental contract.</span></div></div>
+      <div class="stop"><div class="t">5:30p</div><div class="d"><b>Dinner: Hāliʻimaile General Store</b><span>Bev Gannon's original Hawaii Regional spot. Crab pizza, paniolo ribs.</span></div></div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="ticket"><h2>Lava Coast &amp; Close to Home</h2><p>Short drives, a low-key day · 8–13 mi</p></div>
+    <div class="timeline">
+      <div class="stop"><div class="t">6:45a</div><div class="d"><b>La Pérouse Bay / Hoapili Trail</b><span>The 1790 lava flow and King's Trail. 20 min south. Go early: hot, no shade, sturdy shoes.</span></div></div>
+      <div class="stop"><div class="t">9:30a</div><div class="d"><b>Breakfast back in Wailea or Kihei</b><span>Or a slow breakfast on the lanai at the hotel.</span></div></div>
+      <div class="stop"><div class="t">11:00a</div><div class="d"><b>Maui Ocean Center, Māʻalaea</b><span>~20 min. The best aquarium in Hawaii; open-ocean tank tunnel.</span></div></div>
+      <div class="stop"><div class="t">3:00p</div><div class="d"><b>Pool / Wailea Beach Path stroll</b><span>1.5 paved miles past the resorts' gardens and art.</span></div></div>
+      <div class="stop"><div class="t">6:00p</div><div class="d"><b>Dinner: Humuhumunukunukuāpuaʻa</b><span>Thatched-roof dining over a saltwater lagoon at the Grand Wailea, a 15-minute stroll along the beach path.</span></div></div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="ticket"><h2>ʻĪao Valley &amp; the Wild Northwest</h2><p>Rainforest valley and remote coast · ~20–27 mi</p></div>
+    <div class="timeline">
+      <div class="stop"><div class="t">7:00a</div><div class="d"><b>Waiheʻe Ridge Trail (optional)</b><span>~4 mi RT, 1,500 ft gain. Gate 7a–7p; the lot is full by ~10a and clouds roll in by late morning.</span></div></div>
+      <div class="stop"><div class="t">10:30a</div><div class="d"><b>Kahekili Hwy to Kahakuloa</b><span>Tiny village on a narrow cliff road; banana bread stands. Turn back at Kahakuloa.</span></div></div>
+      <div class="stop"><div class="t">1:00p</div><div class="d"><b>Lunch in Wailuku</b><span>Old Market Street, local plate lunch.</span></div></div>
+      <div class="stop"><div class="t">2:30p</div><div class="d"><b>ʻĪao Valley State Monument</b><span><b>Reservation required</b> for nonresidents (gostateparks.hawaii.gov). $5/person + $10 parking. Open 7a–6p.</span></div></div>
+      <div class="stop"><div class="t">6:00p</div><div class="d"><b>Dinner: Kaʻana Kitchen (Andaz)</b><span>10-min walk from the hotel. Hawaii Regional, open kitchen.</span></div></div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="ticket"><h2>Haleakalā Sunset</h2><p>Above the clouds, no 3 a.m. alarm · ~50 mi (1 hr 45 min)</p></div>
+    <div class="timeline">
+      <div class="stop"><div class="t">1:00p</div><div class="d"><b>Leave Wailea, via Kula</b><span>Stop at Kula Country Farms or Makawao town on the way up.</span></div></div>
+      <div class="stop"><div class="t">3:30p</div><div class="d"><b>Haleakalā National Park</b><span>$30/vehicle (3 days). Sunset needs <b>no reservation</b>. Visitor center, silverswords, Sliding Sands overlook.</span></div></div>
+      <div class="stop"><div class="t">~6:15p</div><div class="d"><b>Summit sunset</b><span>It's near freezing up top, so bring a real jacket. Stay for the stars.</span></div></div>
+      <div class="stop"><div class="t">8:30p</div><div class="d"><b>Late dinner</b><span>Lineage or Monkeypod in Wailea, both open late-ish.</span></div></div>
+    </div>
+    <div class="callout">Want <b>sunrise</b> instead? It needs a $1/vehicle reservation on recreation.gov. A batch releases <b>2 days ahead at 7 a.m. HST</b>, which is the play for a trip this week. Leave Wailea ~3:30 a.m.</div>
+  </div>
+
+  <div class="day">
+    <div class="ticket"><h2>On the Water + Luau</h2><p>Not a beach day · Māʻalaea/Kihei 13 mi</p></div>
+    <div class="timeline">
+      <div class="stop"><div class="t">6:30a</div><div class="d"><b>Molokini snorkel / sail</b><span>Morning boats from Māʻalaea or Kihei. Water is calmest early.</span></div></div>
+      <div class="stop"><div class="t">1:00p</div><div class="d"><b>Rest / Shops at Wailea</b><span>10-min walk.</span></div></div>
+      <div class="stop"><div class="t">5:00p</div><div class="d"><b>Te Au Moana Luau</b><span>On property, oceanfront. Confirm nights and price with the concierge.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EAT ================= -->
+<section class="page" id="eat">
+  <div class="banner">Roy's-Style Dining · Closest First</div>
+  <div class="callout">In the 1990s, a dozen visionary chefs, Roy Yamaguchi, Bev Gannon and Peter Merriman among them, invented Hawaii Regional Cuisine: island-caught fish, Asian technique and farm-fresh Maui produce. Their kitchens are still some of the island's finest, and several sit just minutes from Wailea.</div>
+
+  <h3>First Order</h3>
+  <div class="card top"><span class="name">Kaʻana Kitchen · Andaz</span> <span class="dist">10 min walk</span>
+    <p>Hawaii Regional, open kitchen, farm-driven. Grilled octopus; catch with pork-belly chorizo. Sunset views.</p>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Ka%27ana+Kitchen+Andaz+Maui">Map ›</a></div>
+  <div class="card top"><span class="name">Humuhumunukunukuāpuaʻa · Grand Wailea</span> <span class="dist">15 min walk</span>
+    <p>Thatched restaurant floating on a saltwater lagoon. Contemporary Hawaiian; the closest match to a special-occasion Roy's night.</p>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Humuhumunukunukuapuaa+Grand+Wailea">Map ›</a></div>
+  <div class="card top"><span class="name">Gannon's</span><span class="chip">Bev Gannon</span> <span class="dist">2 mi · 5 min</span>
+    <p>Hawaii Regional co-founder's spot at the Gold &amp; Emerald clubhouse. Blackened citrus ahi, hoisin short ribs, sunset over the course.</p>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Gannon%27s+Wailea">Map ›</a></div>
+  <div class="card top"><span class="name">Mama's Fish House</span> <span class="dist">24 mi · 40 min</span>
+    <p>Polynesian seafood landmark at Kūʻau near Pāʻia. Pair with the Hana Lite day. Book far ahead.</p>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Mama%27s+Fish+House+Paia">Map ›</a></div>
+  <div class="card top"><span class="name">Hāliʻimaile General Store</span><span class="chip">Bev Gannon</span> <span class="dist">22 mi · 40 min</span>
+    <p>The original Hawaii Regional dining room in an old pineapple-camp store. Pair with the Upcountry day. Crab pizza, paniolo ribs.</p>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Haliimaile+General+Store">Map ›</a></div>
+
+  <h3>Second Order</h3>
+  <div class="card"><span class="name">Humble Market Kitchin</span><span class="chip">Been there</span> <span class="dist">in hotel</span><p>Roy Yamaguchi's own, right downstairs. Worth a return breakfast (6:30–11a).</p></div>
+  <div class="card"><span class="name">Kō · Fairmont Kea Lani</span> <span class="dist">1.5 mi · 5 min</span><p>Plantation-era island cuisine: Hawaiian, Filipino, Portuguese, Japanese influences.</p></div>
+  <div class="card"><span class="name">Spago · Four Seasons</span> <span class="dist">20 min walk</span><p>Wolfgang Puck, California-Hawaiian. The splurge.</p></div>
+  <div class="card"><span class="name">Morimoto Maui · Andaz</span> <span class="dist">10 min walk</span><p>Iron Chef Japanese; omakase.</p></div>
+  <div class="card"><span class="name">Lineage · Shops at Wailea</span> <span class="dist">10 min walk</span><p>Modern local, Korean/Chinese family-style. Korean fried chicken, garlic Szechuan noodles. (Sheldon Simeon no longer cooks there.)</p></div>
+  <div class="card"><span class="name">Monkeypod Kitchen · Wailea</span> <span class="dist">1.5 mi · 5 min</span><p>Peter Merriman's casual spot (another Hawaii Regional founder). Good happy hour.</p></div>
+  <div class="card"><span class="name">Roy's Kaanapali</span> <span class="dist">40 mi · 1 hr 15</span><p>Still open (Yelp updated Sep 2026). Worth it only if you're on the West Maui side anyway.</p></div>
+</section>
+
+<!-- ================= DO ================= -->
+<section class="page" id="do">
+  <div class="banner">Hana Feel, Closer to Home</div>
+  <div class="card top"><span class="name">Hana Lite: Pāʻia → Twin Falls → Keʻanae</span> <span class="dist">22 mi · 40 min to Pāʻia</span>
+    <p>The best bang-for-the-drive of the Hana Highway: bamboo, waterfalls, one-lane bridges, lava-and-surf at Keʻanae. See Plan 1.</p>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Twin+Falls+Maui">Map ›</a></div>
+  <div class="card top"><span class="name">Upcountry + ʻUlupalakua</span> <span class="dist">30 mi · 50 min</span>
+    <p>Slow, green, small-town Old Maui on Haleakalā's flank. Farms, gardens, ranch, winery. See Plan 2.</p>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Ulupalakua+Ranch+Store">Map ›</a></div>
+  <div class="card top"><span class="name">ʻĪao Valley State Monument</span> <span class="dist">20 mi · 35 min</span>
+    <p>Cloud-draped green spire and rainforest stream. Nonresident <b>reservation required</b>; $5/person + $10 parking; 7a–6p.</p>
+    <a class="maplink" href="https://gostateparks.hawaii.gov/">Reserve ›</a></div>
+  <div class="card"><span class="name">Kahekili Hwy · Waiheʻe Ridge · Kahakuloa</span> <span class="dist">27 mi · 50 min</span>
+    <p>Wild, remote northwest coast and ridge hike. Narrow cliff road; take it slow.</p></div>
+  <div class="card"><span class="name">Backside toward Kaupō</span> <span class="dist">32 mi · 55 min to start</span>
+    <p>Barren lava, deep canyons, Big Island on the horizon, almost no cars. Out-and-back; many rental contracts exclude the unpaved stretch.</p></div>
+  <div class="card"><span class="name">Full Road to Hana</span> <span class="dist">70 mi · 2.5–3 hr</span>
+    <p>Still an option. Waiʻānapanapa needs a timed reservation (30 days out). Consider a guided tour.</p></div>
+
+  <div class="banner">Daytime, Not Beach</div>
+  <div class="card top"><span class="name">Haleakalā summit (sunset)</span> <span class="dist">50 mi · 1 hr 45</span><p>10,000-ft crater above the clouds. $30 park pass; sunset needs no reservation.</p></div>
+  <div class="card top"><span class="name">Kula Botanical Garden</span> <span class="dist">30 mi · 50 min</span><p>9a–4p daily, $15.</p></div>
+  <div class="card top"><span class="name">Aliʻi Kula Lavender</span> <span class="dist">31 mi · 55 min</span><p>Fri–Mon 10a–4p. $5; $2 military.</p></div>
+  <div class="card top"><span class="name">Maui Ocean Center</span> <span class="dist">13 mi · 20 min</span><p>Aquarium in Māʻalaea; best rainy-day plan.</p></div>
+  <div class="card"><span class="name">Surfing Goat Dairy</span> <span class="dist">28 mi · 45 min</span><p>~30-min farm walk, goat feeding, chèvre tasting.</p></div>
+  <div class="card"><span class="name">MauiWine, ʻUlupalakua</span> <span class="dist">32 mi · 55 min</span><p>Tasting room 11a–5p; reservations recommended.</p></div>
+  <div class="card"><span class="name">Makawao town</span> <span class="dist">25 mi · 45 min</span><p>Paniolo town, galleries, Komoda Bakery, Hui Noʻeau arts center.</p></div>
+  <div class="card"><span class="name">Molokini snorkel / sail</span> <span class="dist">13 mi · 20 min</span><p>Morning boats from Māʻalaea or Kihei.</p></div>
+  <div class="card"><span class="name">Te Au Moana Luau</span> <span class="dist">on property</span><p>The hotel's own oceanfront luau.</p></div>
+
+  <div class="banner">Off the Beaten Path</div>
+  <div class="card"><span class="name">La Pérouse Bay / Hoapili Trail</span> <span class="dist">8 mi · 20 min</span><p>1790 lava flow and the King's Trail. Dawn only.</p>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=La+Perouse+Bay+Maui">Map ›</a></div>
+  <div class="card"><span class="name">ʻĀhihi-Kīnaʻu Natural Area Reserve</span> <span class="dist">7 mi · 15 min</span><p>Lava-field reserve. $10/car, 5:30a–7:30p.</p></div>
+  <div class="card"><span class="name">Polipoli / Waihou Spring forest</span> <span class="dist">Upcountry</span><p>Misty pine and eucalyptus forest trails; muddy after rain.</p></div>
+</section>
+
+<!-- ================= INFO ================= -->
+<section class="page" id="info">
+  <div class="banner">Book This Week</div>
+  <ul class="check">
+    <li><b>Mama's Fish House</b>: books out far ahead; try for a late lunch if dinner is gone</li>
+    <li><b>ʻĪao Valley</b>: entry + parking at gostateparks.hawaii.gov (up to 30 days out)</li>
+    <li><b>Haleakalā sunrise</b> (only if wanted): recreation.gov, 2-day-ahead release at 7 a.m. HST</li>
+    <li><b>MauiWine</b> tasting on Tock</li>
+    <li><b>Waiʻānapanapa</b> only if doing full Hana (no same-day)</li>
+    <li><b>Te Au Moana Luau</b>: ask the concierge for nights</li>
+  </ul>
+
+  <div class="banner">Getting Around</div>
+  <div class="card"><span class="name">Rental car</span><p>Essential. Check whether your contract excludes the Kaupō backside or the Kahekili Hwy.</p></div>
+  <div class="card"><span class="name">Walking</span><p>Wailea Beach Path (1.5 mi paved) connects Andaz, the Marriott, Grand Wailea, Four Seasons and Fairmont. Shops at Wailea are a 10-min walk.</p></div>
+  <div class="card"><span class="name">Uber / Lyft</span><p>Fine around Wailea and Kihei. Scarce Upcountry and on the Hana and Kahekili roads, so don't plan a ride back from there.</p></div>
+  <div class="card"><span class="name">Driving tips</span><p>Upcountry roads are slower than the map says. Gas up in Kahului or Kihei before Hana, Kahekili or Kaupō.</p></div>
+
+  <div class="banner">Videos</div>
+  <div class="card yt"><span class="ch">Hawaii Walking Tours</span> <span class="dt">Jul 2026</span><br><a href="https://www.youtube.com/watch?v=X_knfHrPD_Q">Maui 7-Day Ultimate Itinerary Staying in Wailea</a></div>
+  <div class="card yt"><span class="ch">Hawaii Travel Made Easy</span> <span class="dt">Sep 2026</span><br><a href="https://www.youtube.com/watch?v=DbcpKWMaeNw">Maui's Upcountry: Why Most Visitors Skip It and Shouldn't</a></div>
+  <div class="card yt"><span class="ch">Hawaii Walking Tours</span> <span class="dt">Nov 2024</span><br><a href="https://www.youtube.com/watch?v=Sp5jkPPMFbU">Upcountry Maui Day Trip: Lavender, Makawao, Kula Country Farms</a></div>
+  <div class="card yt"><span class="ch">Tina Nguyen</span> <span class="dt">Jul 2025</span><br><a href="https://www.youtube.com/watch?v=GNpXNh73YK8">The Ultimate One-Day Upcountry Maui Itinerary</a></div>
+  <div class="card yt"><span class="ch">The Hawaii Vacation Guide</span> <span class="dt">Feb 2026</span><br><a href="https://www.youtube.com/watch?v=HHqxzLZfwMo">Our Favorite Local Spots in Wailea and Kihei</a></div>
+  <div class="card yt"><span class="ch">Localish</span> <span class="dt">Mar 2026</span><br><a href="https://www.youtube.com/watch?v=isMLbkeaggw">Wailea Village helps Maui shine</a></div>
+
+  <div class="banner">Verify Before Going</div>
+  <ul class="check">
+    <li>Drive times are map estimates from Wailea</li>
+    <li>Garden of Eden Arboretum and Aunty Sandy's hours</li>
+    <li>ʻĪao reopened after its 2026 bridge closure; check DLNR notices that morning</li>
+    <li>Twin Falls high-water closures (farm's social pages)</li>
+  </ul>
+
+  <div class="banner">Sources</div>
+  <div class="src">
+    <a href="https://hawaiisbesttravel.com/hawaii-reservations-and-fees/">Hawaii reservations &amp; fees 2026</a>
+    <a href="https://dlnr.hawaii.gov/dsp/parks/maui/iao-valley-state-monument/">ʻĪao Valley · DLNR</a>
+    <a href="https://www.nps.gov/hale/planyourvisit/fees.htm">Haleakalā fees · NPS</a>
+    <a href="https://www.hawaiimagazine.com/what-to-know-about-driving-mauis-other-way-to-hana/">The other way to Hana · Hawaii Magazine</a>
+    <a href="https://wanderlustyle.com/twin-falls-maui/">Twin Falls guide · Wanderlustyle</a>
+    <a href="https://travelhawaiiwithus.com/waihee-ridge-trail-hike-maui/">Waiheʻe Ridge 2026 guide</a>
+    <a href="https://dlnr.hawaii.gov/ecosystems/nars/maui/ahihi-kinau-2/">ʻĀhihi-Kīnaʻu · DLNR</a>
+    <a href="https://kbgmaui.com/directions-and-hours">Kula Botanical Garden hours</a>
+    <a href="https://aliikulalavender.com/plan-your-visit-2/">Aliʻi Kula Lavender</a>
+    <a href="https://www.exploretock.com/mauiwine/faq">MauiWine FAQ</a>
+    <a href="https://www.themauiexpert.com/wailea-restaurants-maui">Wailea restaurants · The Maui Expert</a>
+    <a href="https://www.prideofmaui.com/blog/dining/best-restaurants-maui/">Best restaurants in Maui 2026 · Pride of Maui</a>
+    <a href="https://www.yelp.com/biz/humble-market-kitchin-kihei-2">Humble Market Kitchin · Yelp</a>
+    <a href="https://www.honolulumagazine.com/lineage-maui-reopens-with-a-new-post-sheldon-simeon-menu/">Lineage · Honolulu Magazine</a>
+    <a href="https://mauinow.com/maui-itinerary-upcountry/">Upcountry day plan · Maui Now</a>
+  </div>
+</section>
+
+<footer>Maui Pocket Guide · built Oct 9, 2026 · bullseye: Wailea Beach Resort – Marriott</footer>
+</main>
+
+<nav class="tabs">
+  <a href="#home" data-p="home"><span class="i">⌂</span>Home</a>
+  <a href="#days" data-p="days"><span class="i">☀</span>Days</a>
+  <a href="#eat" data-p="eat"><span class="i">◆</span>Eat</a>
+  <a href="#do" data-p="do"><span class="i">⛰</span>Do</a>
+  <a href="#info" data-p="info"><span class="i">ℹ</span>Info</a>
+</nav>
+
+<script>
+(function(){
+  var pages=['home','days','eat','do','info'];
+  function show(){
+    var id=(location.hash||'#home').slice(1);
+    if(pages.indexOf(id)<0) id='home';
+    pages.forEach(function(p){document.getElementById(p).classList.toggle('active',p===id);});
+    document.querySelectorAll('nav.tabs a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-p')===id);});
+    setTimeout(function(){window.scrollTo(0,0);},0);
+  }
+  window.addEventListener('hashchange',show); show();
+
+  var days=document.querySelectorAll('#days .day'), i=0, dots=document.getElementById('dots');
+  days.forEach(function(_,n){var s=document.createElement('span');dots.appendChild(s);});
+  function render(){
+    days.forEach(function(d,n){d.classList.toggle('on',n===i);});
+    dots.querySelectorAll('span').forEach(function(s,n){s.classList.toggle('on',n===i);});
+    document.getElementById('dayBadge').textContent='Plan '+(i+1)+' of '+days.length;
+    document.getElementById('prev').disabled=i===0;
+    document.getElementById('next').disabled=i===days.length-1;
+  }
+  document.getElementById('prev').onclick=function(){if(i>0){i--;render();window.scrollTo(0,0);}};
+  document.getElementById('next').onclick=function(){if(i<days.length-1){i++;render();window.scrollTo(0,0);}};
+  var x0=null, el=document.getElementById('days');
+  el.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+  el.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>60){if(dx<0&&i<days.length-1)i++;else if(dx>0&&i>0)i--;render();}x0=null;},{passive:true});
+  render();
+})();
+</script>
+</body>
+</html>
