@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B2E3A">
+<title>Waterfalls &amp; Mama's</title>
+<style>
+:root{--bg:#ECECEA;--card:#FFFFFF;--ink:#1E1B17;--soft:#5A554C;--line:#DCD8CF;--navy:#0B2E3A;--gold:#C9982F;--gold-soft:#F6ECD2;--maroon:#8A2E26;--green:#2F6B4F;--green-soft:#E6F0EA}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Calibri,Arial,sans-serif;line-height:1.5;-webkit-text-size-adjust:100%}
+a{color:var(--navy)}
+header.hero{background:var(--navy);color:#fff;padding:calc(22px + env(safe-area-inset-top)) 18px 20px;border-bottom:4px solid var(--gold)}
+header.hero .eyebrow{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+header.hero h1{margin:6px 0 6px;font-family:Georgia,"Times New Roman",serif;font-weight:normal;font-size:1.9rem;line-height:1.15}
+header.hero p{margin:0;color:#D8E1E3;font-size:.95rem}
+.stats{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.stats span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:3px 10px;font-size:.75rem;color:#fff}
+nav.jump{position:sticky;top:0;z-index:20;background:#F7F6F2;border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;padding:8px 12px;-webkit-overflow-scrolling:touch;white-space:nowrap}
+nav.jump::-webkit-scrollbar{display:none}
+nav.jump a{flex:0 0 auto;text-decoration:none;font-size:.74rem;font-weight:600;color:var(--maroon);border:1px solid var(--gold);background:#fff;border-radius:999px;padding:5px 11px}
+main{max-width:560px;margin:0 auto;padding:0 16px 40px}
+.banner{background:var(--maroon);color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700;padding:9px 12px;border-radius:6px;margin:26px 0 12px;scroll-margin-top:56px}
+.intro{font-size:.95rem;color:var(--soft);margin:18px 2px 0}
+.timeline{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 14px}
+.stop{display:flex;gap:12px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.stop:last-child{border-bottom:none}
+.stop .t{flex:0 0 52px;font-size:.78rem;font-weight:700;color:var(--maroon);padding-top:3px}
+.stop .d{flex:1;min-width:0}
+.stop h3{margin:0;font-size:1.02rem;color:var(--navy)}
+.stop .lead{margin:4px 0 0;font-size:.9rem;color:var(--soft)}
+.mp{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.mp a{font-size:.72rem;font-weight:600;text-decoration:none;color:var(--navy);border:1px solid var(--line);background:#FAFAF8;border-radius:6px;padding:4px 9px}
+.note{margin-top:10px;background:var(--gold-soft);border-radius:8px;padding:9px 11px;font-size:.84rem}
+details{margin-top:10px;border:1px solid var(--line);border-radius:8px;background:#FBFBF9}
+details summary{cursor:pointer;list-style:none;padding:9px 12px;font-size:.8rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.05em}
+details summary::-webkit-details-marker{display:none}
+details summary:before{content:"+ ";}
+details[open] summary:before{content:"– ";}
+details .pl{margin:0 10px 10px}
+.pl{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 12px;margin-bottom:10px}
+.pl .pn{font-weight:700;color:var(--navy);font-size:.95rem}
+.pl p{margin:4px 0 0;font-size:.86rem;color:var(--soft)}
+.pl p b{color:var(--ink)}
+.tag{display:inline-block;font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;color:var(--maroon);border:1px solid var(--maroon);border-radius:4px;padding:0 5px;margin-left:4px;vertical-align:middle;font-weight:600}
+.first{display:inline-block;font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;background:var(--gold);color:#fff;border-radius:4px;padding:1px 6px;margin-left:4px;vertical-align:middle}
+.mamas .pl{border-left:4px solid var(--gold)}
+.alts .pl{border-left:4px solid var(--green)}
+h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;color:var(--navy);margin:20px 0 8px;border-bottom:1px solid var(--line);padding-bottom:4px}
+ul.tips{list-style:none;padding:0;margin:0}
+ul.tips li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--maroon);border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:.88rem}
+ul.tips li b{color:var(--navy)}
+footer{text-align:center;color:var(--soft);font-size:.72rem;padding:20px 0 calc(16px + env(safe-area-inset-bottom))}
+@media (max-width:380px){main{padding:0 12px 40px}header.hero h1{font-size:1.6rem}.stop .t{flex-basis:46px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">Maui · Day 1</div>
+  <h1>Waterfalls &amp; Mama's</h1>
+  <p>The magic of the Hana Highway at half the drive: a surf town, a jungle waterfall, bamboo forests and sea cliffs. You'll finish with turtles at sunset and dinner by the sea.</p>
+  <div class="stats"><span>12:00p start</span><span>~6:10p sunset</span><span>7:15p dinner</span><span>~22 mi to Pāʻia</span></div>
+</header>
+
+<nav class="jump">
+  <a href="#route">The Route</a>
+  <a href="#dinner">Dinner</a>
+  <a href="#tips">Know Before You Go</a>
+</nav>
+
+<main>
+  <div class="banner" id="route">The Route</div>
+  <div class="timeline">
+<div class="stop"><div class="t">12:00p</div><div class="d"><h3>Depart Wailea</h3><p class="lead">Head north across the isthmus toward the North Shore, with the West Maui Mountains on your left and Haleakalā rising on your right.</p><div class="mp"><a href="https://maps.apple.com/?q=Wailea+Beach+Resort+Marriott+Maui%2C+3700+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Wailea+Beach+Resort+Marriott+Maui%2C+3700+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Google Maps</a></div><details><summary>Along the way</summary><div class="pl"><div class="pn">Fill the tank in Kahului or Pāʻia</div><p>There's no gas between Pāʻia and Hāna town. Top off before you start.</p><div class="mp"><a href="https://maps.apple.com/?q=Gas+station+Paia%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Gas+station+Paia%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">Ululani's Hawaiian Shave Ice · Kahului <span class="tag">Shave ice</span></div><p>A Maui institution if you want dessert first. Try the <b>Haleakalā</b> (coconut, leche, sweetened condensed milk), or add a scoop of Roselani macadamia-nut ice cream underneath.</p><div class="mp"><a href="https://maps.apple.com/?q=Ululani%27s+Hawaiian+Shave+Ice+Kahului">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Ululani%27s+Hawaiian+Shave+Ice+Kahului">Google Maps</a></div></div></details></div></div>
+<div class="stop"><div class="t">12:45p</div><div class="d"><h3>Pāʻia Town</h3><p class="lead">A bohemian surf town of painted plantation storefronts, where windsurfers, artists and farmers share two short streets. It's the last real town before the Hana Highway.</p><div class="mp"><a href="https://maps.apple.com/?q=Paia%2C+HI+96779">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Paia%2C+HI+96779">Google Maps</a></div><details><summary>Lunch, treats &amp; local shops</summary><div class="pl"><div class="pn">Tobi's Shave Ice &amp; Poke <span class="tag">Shave ice</span></div><p>House-made natural syrups. Order the <b>"Road to Hana"</b> (guava, lychee, lime) or the <b>"Local"</b> (lilikoi, coconut, pineapple), with li hing mui powder if you're brave. Their spicy <b>Tsunami poke</b> makes a great quick lunch. About 11a–6p.</p><div class="mp"><a href="https://maps.apple.com/?q=Tobi%27s+Shave+Ice%2C+137+Hana+Hwy%2C+Paia%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Tobi%27s+Shave+Ice%2C+137+Hana+Hwy%2C+Paia%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">Paia Fish Market <span class="tag">Lunch</span></div><p>The corner landmark: charbroiled fish plates and fish tacos at picnic tables. Lines move fast. Open 11a–9p.</p><div class="mp"><a href="https://maps.apple.com/?q=Paia+Fish+Market%2C+100+Hana+Hwy%2C+Paia%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Paia+Fish+Market%2C+100+Hana+Hwy%2C+Paia%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">Kuʻau Store <span class="tag">Picnic</span></div><p>Beloved roadside deli just past town toward Hoʻokipa. Pick up paninis and sandwiches to go for the drive.</p><div class="mp"><a href="https://maps.apple.com/?q=Kuau+Store%2C+Paia%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Kuau+Store%2C+Paia%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">Mana Foods <span class="tag">Local favorite</span></div><p>The legendary North Shore natural-foods market. Grab fresh fruit, a deli lunch, local snacks and cold drinks for the road.</p><div class="mp"><a href="https://maps.apple.com/?q=Mana+Foods%2C+Baldwin+Ave%2C+Paia%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Mana+Foods%2C+Baldwin+Ave%2C+Paia%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">Paia Bay Coffee <span class="tag">Coffee</span></div><p>A hidden garden café tucked off Hana Hwy, good for an iced coffee before the curves.</p><div class="mp"><a href="https://maps.apple.com/?q=Paia+Bay+Coffee%2C+Paia%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Paia+Bay+Coffee%2C+Paia%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">Baldwin Avenue boutiques &amp; galleries</div><p>Stroll up Baldwin Ave for surf shops, island-made jewelry, resort wear and small galleries of local artists.</p><div class="mp"><a href="https://maps.apple.com/?q=Baldwin+Ave%2C+Paia%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Baldwin+Ave%2C+Paia%2C+HI">Google Maps</a></div></div></details></div></div>
+<div class="stop"><div class="t">2:00p</div><div class="d"><h3>Twin Falls · Mile Marker 2</h3><p class="lead">Your first taste of the rainforest. A short, easy trail leads through a working farm to a waterfall pool framed in ginger and bamboo.</p><div class="mp"><a href="https://maps.apple.com/?q=Twin+Falls+Maui%2C+Haiku%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Twin+Falls+Maui%2C+Haiku%2C+HI">Google Maps</a></div><div class='note'><b>Good to know:</b> $10/car in the farm's paid lot (55 stalls). <b>Last entry 4:30p.</b> The lower falls are a ¼-mile walk; the upper falls ~1.4 mi round trip. Water shoes help. Closed to visitors the 1st Saturday of each month. Don't park on the highway.</div><details><summary>Treats here</summary><div class="pl"><div class="pn">Twin Falls Farm Stand <span class="tag">Treats</span></div><p>Fresh smoothies, drinking coconuts, banana bread and coconut-milk ice cream. A perfect post-hike cool-down.</p><div class="mp"><a href="https://maps.apple.com/?q=Twin+Falls+Farm+Stand%2C+Haiku%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Twin+Falls+Farm+Stand%2C+Haiku%2C+HI">Google Maps</a></div></div></details></div></div>
+<div class="stop"><div class="t">3:15p</div><div class="d"><h3>Into the Rainforest · MM 9–12</h3><p class="lead">Here the road narrows to one-lane bridges and switchbacks under a canopy of rainbow eucalyptus, bamboo and wild ginger, with waterfalls spilling right beside the pavement.</p><details><summary>Stops in this stretch</summary><div class="pl"><div class="pn">Garden of Eden Arboretum · MM 10.5 <span class="tag">Gardens</span></div><p>26 manicured acres with peacocks, a lookout over Puohokamoa Falls and the coastline from <i>Jurassic Park</i>'s opening. <b>8a–4p, $20 adults.</b> Allow 45 minutes; arrive by 3:15.</p><div class="mp"><a href="https://maps.apple.com/?q=Garden+of+Eden+Arboretum%2C+Hana+Hwy%2C+Haiku%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Garden+of+Eden+Arboretum%2C+Hana+Hwy%2C+Haiku%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">Waikamoi Ridge Trail · MM 9.5 <span class="tag">Short walk</span></div><p>A quiet 15-minute loop through towering bamboo and eucalyptus, if you'd rather walk than pay for the garden.</p><div class="mp"><a href="https://maps.apple.com/?q=Waikamoi+Ridge+Trail%2C+Hana+Hwy%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Waikamoi+Ridge+Trail%2C+Hana+Hwy%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">Kaumahina State Wayside · MM 12 <span class="tag">Restrooms</span></div><p>Clean restrooms, picnic tables and your first big view down the coast toward the Keʻanae Peninsula.</p><div class="mp"><a href="https://maps.apple.com/?q=Kaumahina+State+Wayside+Park%2C+Hana+Hwy%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Kaumahina+State+Wayside+Park%2C+Hana+Hwy%2C+HI">Google Maps</a></div></div></details></div></div>
+<div class="stop"><div class="t">4:15p</div><div class="d"><h3>Honomanu Bay Lookout · MM 14</h3><p class="lead">One of the most dramatic views of the drive: the highway carved into sea cliffs, with a black-sand bay far below.</p><div class="mp"><a href="https://maps.apple.com/?q=Honomanu+Bay+Lookout%2C+Hana+Hwy%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Honomanu+Bay+Lookout%2C+Hana+Hwy%2C+HI">Google Maps</a></div><div class='note'>Use the large inland pullout about 0.4 mi past MM 14. <b>If you're running behind, turn around here.</b></div></div></div>
+<div class="stop"><div class="t">4:40p</div><div class="d"><h3>Keʻanae Peninsula · MM 17</h3><p class="lead">A flat finger of jagged black lava where turquoise surf explodes against the shore. A tiny Hawaiian village, taro patches and an 1860 coral-stone church sit at the end of the road. <b>This is your turnaround.</b></p><div class="mp"><a href="https://maps.apple.com/?q=Keanae+Peninsula%2C+Keanae%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Keanae+Peninsula%2C+Keanae%2C+HI">Google Maps</a></div><details><summary>Banana bread &amp; views</summary><div class="pl"><div class="pn">Halfway to Hana stand <span class="tag">Banana bread</span></div><p>Just past MM 17: famous banana bread, shave ice, ice cream, coconut candy and fresh fruit. Bring small bills.</p><div class="mp"><a href="https://maps.apple.com/?q=Halfway+to+Hana%2C+Hana+Hwy%2C+Keanae%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Halfway+to+Hana%2C+Hana+Hwy%2C+Keanae%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">Aunty Sandy's <span class="tag">Banana bread</span></div><p>Down on the peninsula, warm banana bread straight from the oven. Mon–Sat, and it often sells out by mid-afternoon.</p><div class="mp"><a href="https://maps.apple.com/?q=Aunty+Sandy%27s+Banana+Bread%2C+Keanae%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Aunty+Sandy%27s+Banana+Bread%2C+Keanae%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">Keʻanae Arboretum</div><p>Free, flat walk past rainbow eucalyptus and taro terraces, if you have 20 minutes to spare.</p><div class="mp"><a href="https://maps.apple.com/?q=Keanae+Arboretum%2C+Hana+Hwy%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Keanae+Arboretum%2C+Hana+Hwy%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">Wailua Valley Lookout · MM 18.5 <span class="tag">Bonus view</span></div><p>Climb the short stairway for a panorama over Wailua village and the valley falls. Only three parking spaces.</p><div class="mp"><a href="https://maps.apple.com/?q=Wailua+Valley+State+Wayside%2C+Hana+Hwy%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Wailua+Valley+State+Wayside%2C+Hana+Hwy%2C+HI">Google Maps</a></div></div></details></div></div>
+<div class="stop"><div class="t">~6:10p</div><div class="d"><h3>Sunset at Hoʻokipa Lookout</h3><p class="lead">Head back down the coast as the light turns gold. At Hoʻokipa, the world's windsurfing capital, surfers ride the last waves while green sea turtles haul out onto the sand to sleep.</p><div class="mp"><a href="https://maps.apple.com/?q=Hookipa+Lookout%2C+Hana+Hwy%2C+Paia%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Hookipa+Lookout%2C+Hana+Hwy%2C+Paia%2C+HI">Google Maps</a></div><div class="note">Turtles are protected. Stay well back, and look for the roped-off area.</div></div></div>
+  </div>
+
+  <div class="banner" id="dinner">Dinner · 7:15p</div>
+  <div class="mamas"><div class="pl"><div class="pn">Mama's Fish House <span class="first">First choice</span> <span class="tag">Seafood · $$$$</span></div><p>Two minutes from Hoʻokipa, set in a coconut grove on Kuʻau Cove. The menu names the fisherman who caught your fish. Order the <b>stuffed mahi</b> or macadamia-crusted kampachi with lobster and crab. Open until about 8:45p. Book 2–4 weeks ahead: (808) 579-8488.</p><div class="mp"><a href="https://maps.apple.com/?q=Mama%27s+Fish+House%2C+799+Poho+Pl%2C+Paia%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Mama%27s+Fish+House%2C+799+Poho+Pl%2C+Paia%2C+HI">Google Maps</a></div></div></div>
+  <h4>If Mama's is booked: three great alternatives</h4>
+  <div class="alts"><div class="pl"><div class="pn">Nuka <span class="tag">Japanese · $$–$$$</span></div><p>Our pick closest to the Roy's feel: modern Japanese in sleepy Haʻikū town, 10 minutes up the hill. Order the <b>miso butterfish</b>, karaage chicken and something from the sake list. Dinner daily 4:30–10p.</p><div class="mp"><a href="https://maps.apple.com/?q=Nuka%2C+780+Haiku+Rd%2C+Haiku%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Nuka%2C+780+Haiku+Rd%2C+Haiku%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">nyloS <span class="tag">Tasting menu · $$$$</span></div><p>Intimate French-American chef's-table tasting menu with wine pairings, one of the island's highest-rated dinners. 5:30–10p, <b>closed Mon–Tue</b>. Reserve ahead.</p><div class="mp"><a href="https://maps.apple.com/?q=nyloS+Paia%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=nyloS+Paia%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">Paia Fish Market <span class="tag">Casual seafood · $$</span></div><p>The relaxed, no-reservation fallback: fresh charbroiled ono or mahi plates and fish tacos at communal tables. Open until 9p.</p><div class="mp"><a href="https://maps.apple.com/?q=Paia+Fish+Market%2C+100+Hana+Hwy%2C+Paia%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Paia+Fish+Market%2C+100+Hana+Hwy%2C+Paia%2C+HI">Google Maps</a></div></div></div>
+  <h4>Quick &amp; casual in Pāʻia</h4>
+  <div class="pl"><div class="pn">Flatbread Company <span class="tag">Easy option</span></div><p>Wood-fired organic pizzas; try the Mopsy. Until 9p.</p><div class="mp"><a href="https://maps.apple.com/?q=Flatbread+Company%2C+Hana+Hwy%2C+Paia%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Flatbread+Company%2C+Hana+Hwy%2C+Paia%2C+HI">Google Maps</a></div></div><div class="pl"><div class="pn">Café des Amis <span class="tag">Easy option</span></div><p>Crêpes and Indian curries with an often-lively courtyard. Until about 8:30p.</p><div class="mp"><a href="https://maps.apple.com/?q=Cafe+des+Amis%2C+Baldwin+Ave%2C+Paia%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Cafe+des+Amis%2C+Baldwin+Ave%2C+Paia%2C+HI">Google Maps</a></div></div>
+
+  <div class="banner" id="tips">Know Before You Go</div>
+  <ul class="tips">
+    <li><b>Gas &amp; cash.</b> Fill up before Pāʻia, and carry small bills for fruit and banana-bread stands.</li>
+    <li><b>Parking is enforced.</b> "No parking" zones along the highway carry fines and towing. Use only marked lots and pullouts.</li>
+    <li><b>Driving the road.</b> Yield at one-lane bridges (take turns in small groups), and pull over to let locals pass.</li>
+    <li><b>Restrooms.</b> Pāʻia, Twin Falls, Garden of Eden and Kaumahina Wayside.</li>
+    <li><b>Pack.</b> Water shoes, swimwear, a light rain jacket, bug spray and reef-safe sunscreen.</li>
+    <li><b>Turnaround rule.</b> Start back by 4:45p so you're off the narrow stretch before dark and at Hoʻokipa for sunset.</li>
+  </ul>
+
+  <footer>Waterfalls &amp; Mama's · Maui Day 1 · Hours checked Oct 2026; verify the morning you go</footer>
+</main>
+</body>
+</html>
