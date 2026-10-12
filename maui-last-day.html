@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B2E3A">
+<title>Last Day in Wailea</title>
+<style>
+:root{--bg:#ECECEA;--card:#FFFFFF;--ink:#1E1B17;--soft:#5A554C;--line:#DCD8CF;--navy:#0B2E3A;--gold:#C9982F;--gold-soft:#F6ECD2;--maroon:#8A2E26;--coral:#E0565B;--sea:#DCEFF2}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Calibri,Arial,sans-serif;line-height:1.5;-webkit-text-size-adjust:100%;padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+a{color:var(--navy)}
+header.top{position:sticky;top:0;z-index:30;background:var(--navy);color:#fff;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;border-bottom:3px solid var(--gold);display:flex;align-items:center;justify-content:space-between;gap:8px}
+header.top b{font-size:1rem}
+header.top small{display:block;color:var(--gold-soft);font-size:.72rem}
+header.top .flower{width:30px;height:30px;flex:0 0 30px}
+main{max-width:520px;margin:0 auto;padding:0 16px}
+section{scroll-margin-top:64px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(160deg,#FFF6E4 0%,#FFFFFF 55%,var(--sea) 100%);border:1px solid var(--line);border-radius:16px;padding:22px 18px 18px;margin-top:16px}
+.hero .eyebrow{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--maroon);font-weight:700}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-weight:normal;color:var(--navy);font-size:1.75rem;line-height:1.2;margin:6px 0 10px}
+.hero h1 em{color:var(--coral);font-style:italic}
+.hero p{margin:0 0 8px;font-size:.95rem;color:var(--soft)}
+.hero .turtle{position:absolute;right:-10px;bottom:-12px;width:96px;opacity:.9}
+.hero .sign{font-family:Georgia,serif;font-style:italic;color:var(--navy);margin-top:10px}
+.facts{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-top:12px;overflow:hidden}
+.facts div{display:flex;justify-content:space-between;gap:10px;padding:9px 14px;border-bottom:1px solid var(--line);font-size:.86rem}
+.facts div:last-child{border-bottom:none}
+.facts span:first-child{color:var(--soft)}
+.facts span:last-child{font-weight:600;text-align:right}
+.banner{background:var(--maroon);color:#fff;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:700;padding:9px 12px;border-radius:8px;margin:26px 0 12px}
+.banner small{float:right;text-transform:none;letter-spacing:0;font-weight:400;color:#F3D9D6}
+.timeline{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 14px}
+.stop{display:flex;gap:12px;padding:13px 0;border-bottom:1px dashed var(--line)}
+.stop:last-child{border-bottom:none}
+.stop .t{flex:0 0 64px;font-size:.74rem;font-weight:700;color:var(--maroon);padding-top:2px}
+.stop .d{flex:1;min-width:0;font-size:.9rem}
+.stop .d b{color:var(--navy)}
+.stop .desc{display:block;color:var(--soft);font-size:.84rem;margin-top:3px}
+.walk{display:inline-block;font-size:.72rem;font-weight:600;color:var(--navy);background:var(--gold-soft);border-radius:999px;padding:2px 9px;margin-top:4px;white-space:nowrap}
+.walk.sm{margin-top:0;font-size:.68rem;padding:1px 7px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.card .row{display:flex;gap:12px;align-items:center}
+.pic{flex:0 0 64px;width:64px;height:64px}
+.pic svg{width:64px;height:64px;display:block}
+.card .ct{font-weight:700;color:var(--navy);font-size:1.02rem;line-height:1.25}
+.card p{margin:10px 0 0;font-size:.89rem;color:var(--soft)}
+.card p b{color:var(--ink)}
+.tip{margin-top:10px;background:var(--gold-soft);border-radius:8px;padding:8px 10px;font-size:.82rem}
+.tip:before{content:"🌺 ";}
+.mp{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.mp a{font-size:.72rem;font-weight:600;text-decoration:none;color:var(--navy);border:1px solid var(--line);background:#FAFAF8;border-radius:6px;padding:4px 9px}
+.stop .mp{margin-top:6px}
+.callout{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--maroon);border-radius:10px;padding:12px 14px;font-size:.88rem;margin:12px 0}
+.callout b{color:var(--navy)}
+.goodbye{text-align:center;padding:24px 10px 10px;color:var(--soft)}
+.goodbye .big{font-family:Georgia,serif;font-size:1.5rem;color:var(--navy)}
+.goodbye .flower{width:44px;height:44px;margin:0 auto 6px}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--navy);display:flex;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom));border-top:3px solid var(--gold)}
+nav.tabs a{flex:1;text-align:center;color:#C9D3D6;text-decoration:none;font-size:.68rem;font-weight:600;padding:3px 0}
+nav.tabs a .i{display:block;font-size:1.1rem;line-height:1.25}
+nav.tabs a:active{color:var(--gold)}
+@media (max-width:380px){main{padding:0 12px}.hero h1{font-size:1.5rem}.pic,.pic svg{width:54px;height:54px;flex-basis:54px}.stop .t{flex-basis:56px}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div><b>Last Day in Wailea</b><small>Everything's a stroll from the Marriott</small></div>
+  <div class="flower"><svg viewBox="0 0 80 80" aria-hidden="true"><g fill="#E0565B"><ellipse cx="40" cy="24" rx="11" ry="15"/><ellipse cx="40" cy="24" rx="11" ry="15" transform="rotate(72 40 40)"/><ellipse cx="40" cy="24" rx="11" ry="15" transform="rotate(144 40 40)"/><ellipse cx="40" cy="24" rx="11" ry="15" transform="rotate(216 40 40)"/><ellipse cx="40" cy="24" rx="11" ry="15" transform="rotate(288 40 40)"/></g><circle cx="40" cy="40" r="7" fill="#F6C94C"/><path d="M40 40l14-14" stroke="#F6C94C" stroke-width="3"/><circle cx="55" cy="25" r="3" fill="#F6C94C"/></svg></div>
+</header>
+
+<main>
+<section id="hello">
+  <div class="hero">
+    <div class="eyebrow">Maui · The Grand Finale</div>
+    <h1>Aloha &amp; Mahalo,<br><em>Charla</em> and your beautiful family</h1>
+    <p>One last island morning, and not a single car key required. Today is for slow coffee, buttery pineapple cookies, turtles nibbling breakfast in the shallows, and a few treasures to tuck in the suitcase.</p>
+    <p>Every stop below is an easy walk from the hotel, so linger as long as the island lets you.</p>
+    <div class="sign">A hui hou, until we meet again 🌺</div>
+    <div class="turtle"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="#DCEFF2"/><path d="M8 58c8-4 14 4 22 0s14 4 22 0 14 4 22 0" stroke="#7FC1CC" stroke-width="3" fill="none"/><ellipse cx="38" cy="40" rx="16" ry="12" fill="#3E7D4F"/><path d="M30 36l8-6 8 6-3 9h-10z" fill="#5FA06B"/><circle cx="58" cy="37" r="6" fill="#7DB36B"/><circle cx="60" cy="35.5" r="1.2" fill="#1E1B17"/><path d="M26 30l-8-5M26 50l-8 5M48 50l6 6M47 30l5-5" stroke="#7DB36B" stroke-width="5" stroke-linecap="round"/></svg></div>
+  </div>
+  <div class="facts">
+    <div><span>Home base</span><span>Wailea Beach Resort – Marriott</span></div>
+    <div><span>Farthest stroll</span><span>20 min (Four Seasons)</span></div>
+    <div><span>Shops open</span><span>~10a</span></div>
+    <div><span>Leave for OGG</span><span>~3 hr before your flight</span></div>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="banner">The Easy-Breezy Plan <small>walk times from the hotel</small></div>
+  <div class="timeline"><div class="stop"><div class="t">7:00a</div><div class="d"><b>Turtle-spotting stroll</b> <span class="walk sm">🚶 10 min</span><span class="desc">Wander north on the Wailea Beach Path to Ulua &amp; Mōkapu beaches while the sea is glassy. Honu (green sea turtles) love a breakfast of seaweed here.</span><div class="mp"><a href="https://maps.apple.com/?q=Ulua+Beach%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Ulua+Beach%2C+Wailea%2C+HI">Google Maps</a></div></div></div><div class="stop"><div class="t">8:00a</div><div class="d"><b>Coffee with a view</b> <span class="walk sm">🚶 7 min</span><span class="desc">Island Vintage Coffee at the Shops at Wailea. Kona coffee and the famous Mauna Kea iced coffee.</span><div class="mp"><a href="https://maps.apple.com/?q=Island+Vintage+Coffee%2C+3750+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Island+Vintage+Coffee%2C+3750+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Google Maps</a></div></div></div><div class="stop"><div class="t">9:00a</div><div class="d"><b>Gardens &amp; Botero bronzes</b> <span class="walk sm">🚶 12 min</span><span class="desc">Meander south through the Grand Wailea's gardens and lobby to find Fernando Botero's delightfully plump bronze sculptures.</span><div class="mp"><a href="https://maps.apple.com/?q=Grand+Wailea%2C+3850+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Wailea%2C+3850+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Google Maps</a></div></div></div><div class="stop"><div class="t">10:00a</div><div class="d"><b>Cookies &amp; treasures</b> <span class="walk sm">🚶 7 min</span><span class="desc">Shops open around 10. Grab pineapple shortbread at Honolulu Cookie Company and souvenirs at Island Gourmet Markets.</span><div class="mp"><a href="https://maps.apple.com/?q=The+Shops+at+Wailea%2C+3750+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=The+Shops+at+Wailea%2C+3750+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Google Maps</a></div></div></div><div class="stop"><div class="t">11:00a</div><div class="d"><b>Pack, check out, stash the bags</b> <span class="walk sm">🚶 0 min</span><span class="desc">Ask the front desk for a late check-out or a bag hold, then go enjoy the afternoon unencumbered.</span><div class="mp"><a href="https://maps.apple.com/?q=Wailea+Beach+Resort+Marriott+Maui%2C+3700+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Wailea+Beach+Resort+Marriott+Maui%2C+3700+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Google Maps</a></div></div></div><div class="stop"><div class="t">Afternoon</div><div class="d"><b>One last swim &amp; a picnic</b> <span class="walk sm">🚶 0–7 min</span><span class="desc">Poolside lunch, or a deli picnic from Island Gourmet. Say a proper goodbye to the ocean.</span><div class="mp"><a href="https://maps.apple.com/?q=Wailea+Beach+Resort+Marriott+Maui%2C+3700+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Wailea+Beach+Resort+Marriott+Maui%2C+3700+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Google Maps</a></div></div></div><div class="stop"><div class="t">Flight −3 hr</div><div class="d"><b>Off to Kahului (OGG)</b> <span class="walk sm">🚗 ~45 min drive</span><span class="desc">Leave about 3 hours before departure to allow for the drive, the rental-car return and security.</span><div class="mp"><a href="https://maps.apple.com/?q=Kahului+Airport%2C+Kahului%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Kahului+Airport%2C+Kahului%2C+HI">Google Maps</a></div></div></div></div>
+</section>
+
+<section id="treats">
+  <div class="banner">Coffee, Cookies &amp; Goodies</div>
+  <div class="card"><div class="row"><div class="pic"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="#F6ECD2"/><path d="M30 22c-3 4 3 6 0 10M40 20c-3 4 3 6 0 10M50 22c-3 4 3 6 0 10" stroke="#B89A6A" stroke-width="2.5" fill="none" stroke-linecap="round"/><rect x="20" y="36" width="34" height="26" rx="6" fill="#8A5A3B"/><rect x="20" y="36" width="34" height="7" rx="3" fill="#F3E3C3"/><path d="M54 42h4a6 6 0 0 1 0 12h-4" stroke="#8A5A3B" stroke-width="4" fill="none"/><ellipse cx="38" cy="64" rx="22" ry="3" fill="#D9C7A3"/></svg></div><div class="txt"><div class="ct">Island Vintage Coffee</div><span class="walk">🚶 7 min · Shops at Wailea</span></div></div><p>100% Kona coffee, poured by people who take it seriously. Order the <b>Mauna Kea iced coffee</b>: a cold-brew mountain of gelato, caramel and black Hawaiian sea salt. Add an açaí bowl and call it breakfast.</p><div class="tip">Morning line? It moves. The hotel's own Starbucks (0 min) is plan B.</div><div class="mp"><a href="https://maps.apple.com/?q=Island+Vintage+Coffee%2C+3750+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Island+Vintage+Coffee%2C+3750+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Google Maps</a></div></div><div class="card"><div class="row"><div class="pic"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="#FDF3D6"/><path d="M40 14l-6 10M40 14l6 10M40 14v11" stroke="#3E7D4F" stroke-width="3" stroke-linecap="round"/><path d="M33 20l-5 7M47 20l5 7" stroke="#3E7D4F" stroke-width="3" stroke-linecap="round"/><ellipse cx="40" cy="46" rx="17" ry="21" fill="#E2B15B"/><g stroke="#B9822F" stroke-width="1.6" fill="none"><path d="M27 36l26 22M25 46l20 18M31 28l22 20M53 36L27 58M55 46L35 64M49 28L27 48"/></g></svg></div><div class="txt"><div class="ct">Honolulu Cookie Company</div><span class="walk">🚶 7 min · Shops at Wailea</span></div></div><p>Buttery shortbread baked in the shape of tiny pineapples. Samples are free, which is dangerous. Grab a gift box of the <b>pineapple macadamia</b> and a chocolate-dipped Kona coffee. They fly home beautifully in a carry-on.</p><div class="mp"><a href="https://maps.apple.com/?q=Honolulu+Cookie+Company%2C+The+Shops+at+Wailea%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Honolulu+Cookie+Company%2C+The+Shops+at+Wailea%2C+Wailea%2C+HI">Google Maps</a></div></div><div class="card"><div class="row"><div class="pic"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="#E6F0EA"/><path d="M26 34c0-9 6-14 14-14s14 5 14 14" stroke="#7A5230" stroke-width="3" fill="none"/><circle cx="31" cy="33" r="7" fill="#E9A23B"/><circle cx="42" cy="30" r="7" fill="#C94F3D"/><path d="M50 22c6 2 8 8 6 14-5-1-9-6-6-14z" fill="#3E7D4F"/><path d="M18 36h44l-5 26H23z" fill="#C9982F"/><path d="M26 42v14M34 42v14M42 42v14M50 42v14" stroke="#9D7420" stroke-width="2"/></svg></div><div class="txt"><div class="ct">Island Gourmet Markets</div><span class="walk">🚶 7 min · Shops at Wailea</span></div></div><p>Part bakery, part deli, part treasure chest. Pastries are baked in-store daily. Fill a basket with <b>Maui-grown coffee</b>, macadamia nuts, local honey and lilikoʻi treats for the folks back home.</p><div class="tip">Jams, honey and butters count as liquids at security, so tuck them in a checked bag.</div><div class="mp"><a href="https://maps.apple.com/?q=Island+Gourmet+Markets%2C+3750+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Island+Gourmet+Markets%2C+3750+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Google Maps</a></div></div>
+</section>
+
+<section id="wander">
+  <div class="banner">Wander &amp; Wonder</div>
+  <div class="card"><div class="row"><div class="pic"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="#DCEFF2"/><path d="M8 58c8-4 14 4 22 0s14 4 22 0 14 4 22 0" stroke="#7FC1CC" stroke-width="3" fill="none"/><ellipse cx="38" cy="40" rx="16" ry="12" fill="#3E7D4F"/><path d="M30 36l8-6 8 6-3 9h-10z" fill="#5FA06B"/><circle cx="58" cy="37" r="6" fill="#7DB36B"/><circle cx="60" cy="35.5" r="1.2" fill="#1E1B17"/><path d="M26 30l-8-5M26 50l-8 5M48 50l6 6M47 30l5-5" stroke="#7DB36B" stroke-width="5" stroke-linecap="round"/></svg></div><div class="txt"><div class="ct">Wailea Beach Path · North</div><span class="walk">🚶 10 min to Ulua Beach</span></div></div><p>A paved, palm-shaded ribbon along the sea. Head north to <b>Ulua &amp; Mōkapu</b>, the quietest beaches, where turtles graze just offshore in the morning. Give honu at least 10 feet, as they're protected.</p><div class="mp"><a href="https://maps.apple.com/?q=Ulua+Beach%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Ulua+Beach%2C+Wailea%2C+HI">Google Maps</a></div></div><div class="card"><div class="row"><div class="pic"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="#F1E6EF"/><rect x="28" y="58" width="24" height="8" rx="2" fill="#B8A9A0"/><circle cx="40" cy="44" r="15" fill="#7A6A5E"/><circle cx="40" cy="25" r="9" fill="#7A6A5E"/><circle cx="27" cy="40" r="5" fill="#7A6A5E"/><circle cx="53" cy="40" r="5" fill="#7A6A5E"/></svg></div><div class="txt"><div class="ct">Grand Wailea gardens &amp; art</div><span class="walk">🚶 12 min · south on the path</span></div></div><p>Wander through the gardens and open-air lobby of the Grand Wailea, home to a serious art collection that includes Fernando Botero's <b>roly-poly bronze figures</b>. Don't miss the little white seaside chapel. Free to stroll.</p><div class="mp"><a href="https://maps.apple.com/?q=Grand+Wailea%2C+3850+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Grand+Wailea%2C+3850+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Google Maps</a></div></div><div class="card"><div class="row"><div class="pic"><svg viewBox="0 0 80 80" aria-hidden="true"><g fill="#E0565B"><ellipse cx="40" cy="24" rx="11" ry="15"/><ellipse cx="40" cy="24" rx="11" ry="15" transform="rotate(72 40 40)"/><ellipse cx="40" cy="24" rx="11" ry="15" transform="rotate(144 40 40)"/><ellipse cx="40" cy="24" rx="11" ry="15" transform="rotate(216 40 40)"/><ellipse cx="40" cy="24" rx="11" ry="15" transform="rotate(288 40 40)"/></g><circle cx="40" cy="40" r="7" fill="#F6C94C"/><path d="M40 40l14-14" stroke="#F6C94C" stroke-width="3"/><circle cx="55" cy="25" r="3" fill="#F6C94C"/></svg></div><div class="txt"><div class="ct">Four Seasons &amp; Wailea Beach</div><span class="walk">🚶 20 min · south on the path</span></div></div><p>Keep going past the Grand Wailea for postcard views of Wailea Beach, with Kahoʻolawe and Molokini floating on the horizon. Turn around whenever your coffee runs out.</p><div class="mp"><a href="https://maps.apple.com/?q=Four+Seasons+Resort+Maui+at+Wailea%2C+3900+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Four+Seasons+Resort+Maui+at+Wailea%2C+3900+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Google Maps</a></div></div>
+</section>
+
+<section id="home">
+  <div class="banner">Homeward Bound</div>
+  <div class="card"><div class="row"><div class="pic"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="#E8EEF6"/><rect x="22" y="30" width="36" height="30" rx="6" fill="#0B2E3A"/><rect x="32" y="22" width="16" height="10" rx="3" stroke="#0B2E3A" stroke-width="3" fill="none"/><rect x="22" y="40" width="36" height="5" fill="#C9982F"/><circle cx="28" cy="62" r="3" fill="#5A554C"/><circle cx="52" cy="62" r="3" fill="#5A554C"/></svg></div><div class="txt"><div class="ct">Check-out &amp; bag hold</div><span class="walk">🚶 in the hotel</span></div></div><p>Ask the front desk for a late check-out, or leave the bags with the bell desk and spend the afternoon pool-side and carefree.</p><div class="mp"><a href="https://maps.apple.com/?q=Wailea+Beach+Resort+Marriott+Maui%2C+3700+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Wailea+Beach+Resort+Marriott+Maui%2C+3700+Wailea+Alanui+Dr%2C+Wailea%2C+HI">Google Maps</a></div></div><div class="card"><div class="row"><div class="pic"><svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="#FBE3D2"/><circle cx="56" cy="24" r="8" fill="#F2A65A"/><path d="M14 52h52" stroke="#F2A65A" stroke-width="2" stroke-dasharray="4 4"/><path d="M20 44l40-12c4-1 6 3 2 5L28 48z" fill="#0B2E3A"/><path d="M38 38l-6-12h6l10 9zM30 46l-4 8h5l7-7z" fill="#0B2E3A"/></svg></div><div class="txt"><div class="ct">Kahului Airport (OGG)</div><span class="walk">🚗 ~45 min drive</span></div></div><p>Leave about <b>3 hours before your flight</b> to fit the drive across the isthmus, the rental-car return and security. Wave goodbye to Haleakalā on your right.</p><div class="mp"><a href="https://maps.apple.com/?q=Kahului+Airport%2C+Kahului%2C+HI">Apple Maps</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Kahului+Airport%2C+Kahului%2C+HI">Google Maps</a></div></div>
+  <div class="callout"><b>Before you go:</b> check the room safe, grab the phone chargers, shake the sand out of the shoes (Maui keeps enough of it), and save one cookie for the plane.</div>
+  <div class="goodbye">
+    <div class="flower"><svg viewBox="0 0 80 80" aria-hidden="true"><g fill="#E0565B"><ellipse cx="40" cy="24" rx="11" ry="15"/><ellipse cx="40" cy="24" rx="11" ry="15" transform="rotate(72 40 40)"/><ellipse cx="40" cy="24" rx="11" ry="15" transform="rotate(144 40 40)"/><ellipse cx="40" cy="24" rx="11" ry="15" transform="rotate(216 40 40)"/><ellipse cx="40" cy="24" rx="11" ry="15" transform="rotate(288 40 40)"/></g><circle cx="40" cy="40" r="7" fill="#F6C94C"/><path d="M40 40l14-14" stroke="#F6C94C" stroke-width="3"/><circle cx="55" cy="25" r="3" fill="#F6C94C"/></svg></div>
+    <div class="big">Mahalo nui loa, Maui</div>
+    <div>Safe travels, Charla and family</div>
+  </div>
+</section>
+</main>
+
+<nav class="tabs">
+  <a href="#hello"><span class="i">🌺</span>Aloha</a>
+  <a href="#plan"><span class="i">🕘</span>Plan</a>
+  <a href="#treats"><span class="i">☕</span>Treats</a>
+  <a href="#wander"><span class="i">🐢</span>Wander</a>
+  <a href="#home"><span class="i">✈️</span>Home</a>
+</nav>
+</body>
+</html>
